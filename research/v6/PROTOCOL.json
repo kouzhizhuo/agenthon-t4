@@ -1,0 +1,131 @@
+{
+  "version": "t4-resolved-innovation-pairwise-v6",
+  "created": "2026-10-08",
+  "phase": "PRECODE_PREDATA_FEASIBILITY_AMENDED_NO_DATA_OR_OUTCOMES",
+  "objective": "Falsify one bounded scalar correction using resolved parent-forecast errors and a within-origin pairwise loss; do not substitute MAE for the actual ranking objective.",
+  "authorization": "Root authorized one cheap finite falsification round after v5 rejection. No automatic publication or official submission.",
+  "parent": {
+    "source_directory": "t4/research1008v4/source",
+    "manifest": "t4/research1008v4/source_manifest.json",
+    "manifest_sha256": "8f765a254a0bea64207afaa073480eb9780cbb328e3a2d90ed0eceb4a4825915",
+    "exact_numeric_parent": "evidence_engine.fit_ranking_policy, same adapter used by frozen v5 benchmark; preserve full returned point/interval bundle on every fallback",
+    "immutability": "Do not edit v4, v5, organizer sources/corpora/manifests, submissions or already consumed benchmarks. Freeze each parent file hash with runtime/evaluator before control outcomes."
+  },
+  "one_mechanism": {
+    "horizon_weeks": 5,
+    "target": "y_i,t = 100*(N_i,t+5-N_i,t)/OI_i,t; initial origin OI for every resolved historical outcome. Rank these raw target units, never volatility-normalized labels.",
+    "resolved_error": "At origin t, reconstruct exact parent at t-5 with rows available then; e_i,t = y_i,t-5 - parent_i,t-5. The target at t must be visible by current release-aware cutoff. This is prior resolved error, not current unknown error.",
+    "scale": "At feature origin localindexj>=65, sample standard deviation of exactly12nonoverlapping five-week targets with initialindices j-60,j-55,...,j-5 and endpoints j-55,...,j. Everytarget usesitsowninitialOI; allreleasedbyt. Exactfinite nonpositive scale foranymarket yieldswholeparentfallback.",
+    "feature": "a_i,t = clip(e_i,t,-.25*sigma_i,t,+.25*sigma_i,t); z_i,t = a_i,t - mean_roster(a_t). Exactly one feature. After centering abs(z_i) <= .25*sigma_i + mean_roster(.25*sigma), not necessarily the individual precenter cap.",
+    "prediction": "p_i,t = exact_parent_i,t + beta*z_i,t, shared single beta in[-1,1]; preserve parent cross-section mean.",
+    "objective": "For every resolved training origin, pair only entities within that origin. sign(y_i-y_j) is direction; exact tied targets omitted from directional fitting. logistic loss log(1+exp(-sign*(p_i-p_j)/S_t)) with one common S_t=max(median_roster(sigma_i,t),1e-8). Average loss across nontied pairs then across whole origins, plus1*beta^2. No extra intercept or market coefficients.",
+    "optimizer": "Deterministic one-dimensional bounded convex optimization, fixed64 bisection iterations on derivative with endpoint optimum handling. No grid, alternate feature, penalty/weight sweep, selected historical gate or extra arm.",
+    "history": "At most260 supplied report rows per market, each current continuous segment strictly7day sharedTuesday. Local feature origin j needs>=61rows for12nonoverlap horizon targets and a prior parent atj-5; conservatively first feature/trainingorigin fixed j=65, leaving61rows for the prior-parent reconstruction. Training feature origins exactly65,70,75,...,j<=L-6, whose five-week targets resolve in visiblelengthL. Require at least12 such origins, so L>=126 (last first12origin120 resolves125). This threshold is pinned before dates/values; no shifted lattice to maximize sample.",
+    "parent_reconstruction": "At each localfeatureoriginj>=65, exactparent atj withrows0..j; resolvederrorparent atj-5 withrows0..j-5 andoldFridaycutoff. Historical parent fitting mustnot inherit outercutoff, coefficients, futurerows, officialoutcomes orHouse reasoning. Bothcalls purelocalnumericalparent; only traininglabels endingj+5<=L-1 enterbeta.",
+    "fallback": "Unsupported horizon, insufficient history/origins/roster, ambiguous endpoint/release assumption, stale/incomplete cross-section, invalid OI/net/date, nonfinite or nonpositive scale, no directional pairs or numerical failure preserves entire exact parent bundle.",
+    "intervals": "Keep parent lo/hi and expand only if final point lies outside. No new residual-width model, coverage guarantee or calibration claim.",
+    "resources": "Local CPU and existing Python libraries only; inference candidate stdlib only. No House calls, networking, personal remote compute, model installation or GPU."
+  },
+  "predata_source_plan": {
+    "official_source": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalCompressed/index.htm",
+    "report_type": "Legacy futures-only all contract months; exact stable codes fixed from v5 metadata, no market selection by outcomes.",
+    "market_codes": {
+      "CORN_CBT": "002602",
+      "ES_SP500": "13874A",
+      "EURO_FX": "099741",
+      "GOLD_CMX": "088691",
+      "JPY_CME": "097741",
+      "NATGAS_NYMEX": "023651",
+      "SILVER_CMX": "084691",
+      "UST_10Y": "043602",
+      "UST_2Y": "042601",
+      "WTI_NYMEX": "067651"
+    },
+    "acquisition_scope": "Only previously unacquired annual legacy futures-only archives before2012, exact links observed on official source page. Source page/meta may be read; no2012+archive acquisition or reslicing. Initial fixed annual scope1996..2011, subject only to availability/schema/date metadata.",
+    "initial_fixed_blocks": {
+      "warmup_years": [
+        1996,
+        1997,
+        1998
+      ],
+      "development_years": [
+        1999,
+        2000,
+        2001,
+        2002,
+        2003
+      ],
+      "reserved_years": [
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011
+      ]
+    },
+    "block_rule": "Use these exact contiguous five-year development and eight-year reserved blocks if every required source/market/date and sample admission check passes. No alternate block or market search after metadata failure. Missing observed URLs, schemas/codes or inadequate cases stops before forecast and records eligibility rejection.",
+    "metadata_only_stage": "Archive inspection exposes only ZIP/member/schema/hash, market code/name and report date columns to metadata output. It must not print/read into analysis net positions, long/short values, open interest, outcomes or scores. A standalone metadata/date script ignores those columns. Raw archives immutable; numerical panel parsing permitted only after source/date reservation and independent review.",
+    "observation_dates": "Shared Tuesday report dates; retain all raw dates/exclusions. Every history link exactly7days, target exactly35days. NonTuesday/missing/gapped rows are excluded, never imputed or bridged.",
+    "availability": "Tuesday+3days Friday publication is an explicit retrospective assumption. Actual exceptional holiday/shutdown release timestamps and revised vintages may be unavailable. This prevents a full point-in-time claim even when rows precede cutoff. Preserve limitation in every artifact.",
+    "case_lattice": "For each partition find the first shared Tuesday on/after Jan1 of its first year; candidates are every fifth common report starting exactly there, without filtering history before forming lattice. Targets must remain within partition. A candidate needs at least126 consecutive shared rows ending at origin (zero-based current continuous-segment index>=125), plus five consecutive future reports ending35days later. Numeric method uses atmost260visible rows; if continuous history exceeds260, window start moves and its local lattice is still fixed indices65,70,... below. Record every missing/stale/nonTuesday/cadence/history/end-boundary skip. No score-based filter.",
+    "eligibility_stop": "Both development and reserved must retain at least45 whole cross-section origins across at least4years under the exact frozen date/history rules; reserved spans the entire fixed eight-year block. If either fails, stop before numeric forecasting. Invalid source values discovered after reservation also stop with failure rather than changing roster/date rules.",
+    "exposure": "2012..2023 v5 and original competition practice data fully consumed, excluded here. Public method knowledge and same market families remain exposed. Older markets/regimes, revised historical files and assumed releases cannot establish current hidden-contest distribution generalization."
+  },
+  "freezes_and_sequence": [
+    "Write this protocol and independent precode source/date plan review before new source acquisition, candidate code or controls.",
+    "Acquire exact official source links/raw archives and metadata-only date/code/schema hashes; freeze date roster/reservation or reject eligibility before net/outcomes.",
+    "Implement exactly1beta candidate and evaluator; freeze exact candidate, parent, synthetic controls and evaluator before synthetic outcomes. No historical scores.",
+    "Run frozen adversarial synthetic controls once, preserve all outcomes. Failure stops candidate, no threshold relaxation.",
+    "Only if controls pass, parse numeric panel using fixed columns and roster; bind exact raw/member/panel/source/case/evaluator/parent/candidate hashes; independent source/cutoff review before historical accuracy.",
+    "Run one finite development comparison, preserve every case. If primary/guard admission fails, stop without reserved forecasting.",
+    "If development passes, run the sole fixed reserved comparison, independently audit saved results without forecasts, reject or admit using unchanged primary gates.",
+    "No publication/submission automatically follows; root reviews evidence and any genuine production House need separately."
+  ],
+  "synthetic_controls": [
+    "Exact parent/hash/panel binding and future infinite/nonnumeric poison isolation at all nested reconstruction cutoffs.",
+    "Initial-OI residual arithmetic and OI-only changes at fixed net, separate share-change proxy from target.",
+    "Exact source roster/permutation invariance, constant common shifts, scales and postcenter bounds, beta endpoints/convex derivative.",
+    "Origin-balanced pairwise objective, average tied ranks in evaluator, omitted fitting ties, no pair pseudo-replication.",
+    "Whole exact parent fallback for stale/gapped/insufficient/zero-scale/no-pair/nonfinite/unsupported cases.",
+    "Fixed independent-innovation, persistent-innovation, reversing-innovation, volatility-jump/heterogeneous-volatility and extreme-single-market stress cases; retain unfavorable results."
+  ],
+  "historical_comparison": {
+    "arms": [
+      "exact_v4_rank_parent",
+      "resolved_error_pairwise_one_beta"
+    ],
+    "primary": "Equal-origin Spearmanrho with Kendalltau secondary; exact official naive anchored scorer only if valid organizer naive bundle exists. Do not reconstruct hidden official score.",
+    "other_metrics": [
+      "MAE_percent_origin_OI",
+      "90pct_interval_score",
+      "coverage",
+      "width",
+      "fallback_fraction",
+      "harmful_rank_shift_fraction",
+      "all_years"
+    ],
+    "uncertainty": "Paired5000sample seed0 bootstrap by whole calendar year preserving all cross-section origins and year mass. Report finite cluster limits; entity/pair observations are not independent sample units.",
+    "admission": {
+      "rho_gain_minimum": 0.03,
+      "paired_year_lower95_above0": true,
+      "maximum_single_year_rho_regression": 0.05,
+      "maximum_MAE_regression_fraction": 0.05,
+      "maximum_interval_score_regression_fraction": 0.05,
+      "minimum_origins": 45,
+      "minimum_years": 4
+    },
+    "failure_policy": "Failure of any primary/admission/guard rejects this arm. No new features/grids/threshold changes, extra source blocks, repeated reserve or v5reslicing. Preserve v4."
+  },
+  "method_reference": "Official XGBoost Learning to Rank guide https://xgboost.readthedocs.io/en/stable/tutorials/learning_to_rank.html; frozenv5 primary SHA03f724261f9636760529e28f27d906b05316f195ec4b46fae895eebf6d1fe81d. Query groups transfer to origin groups; pairwise logistic is a surrogate, not demonstrated COT skill. No XGBoost install/trees.",
+  "publication_or_submission": false,
+  "predata_feasibility_amendment": {
+    "old_plan": "Four development years2000..2003 cannot yield45 nonoverlapping5weekorigins even with perfect cadence. Initial plan rejected before source acquisition.",
+    "authority": "Root explicitly authorized feasibility correction before new source metadata, values, code or outcomes.",
+    "data_or_outcomes_seen": false,
+    "thresholds_unchanged": true,
+    "initial_protocol_sha256": "8890a6d670b73f342085b244c54c7fa527034f486ee7c3ed435f2cde888906b8"
+  }
+}

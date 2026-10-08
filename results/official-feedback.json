@@ -1,0 +1,22 @@
+{
+  "phase": "Development",
+  "observed_at": "2026-10-08",
+  "best": {
+    "submission_id": 968359,
+    "score": 0.3462,
+    "status": "Finished",
+    "image": "ghcr.io/kouzhizhuo/agenthon-t4@sha256:5e7c3c40d8af3bdb716b0b0225befeca6cd4dc24e48630b588c74636ce4573c6"
+  },
+  "previous": {
+    "submission_id": 968314,
+    "score": 0.2651,
+    "status": "Finished"
+  },
+  "rejected_replacement": {
+    "submission_id": 968634,
+    "score": 0.1222,
+    "status": "Finished"
+  },
+  "decision": "Preserve bestsubmittedV2; V4 rejected as replacement.",
+  "limits": "Program logs withheld; no perunit/component causal attribution, actual requestlatency or intervalcalibration available."
+}

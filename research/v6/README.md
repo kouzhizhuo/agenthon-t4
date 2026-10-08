@@ -1,0 +1,11 @@
+# T4 v6 finite falsification, before implementation and data
+
+`PROTOCOL.json` declares one scalar pairwise correction from fully resolved errors of the frozen v4 parent. It keeps raw initial-open-interest target units and the complete parent fallback. It will stop before forecasts if exact metadata/date eligibility fails; the old v5 reserve remains consumed. The fixed amended plan is development1999–2003 and reserve2004–2011, with1996–1998 history, using only previously unacquired official pre2012 legacy futures-only sources.
+
+Independent review rejected the original four-year development block before acquisition: even perfect cadence cannot produce45 nonoverlapping five-week origins. `PROTOCOL.initial_infeasible.json` and the initial receipt preserve that failure; `PREDATA_FEASIBILITY_AMENDMENT.json` records root's explicit predata five-year correction without threshold relaxation. First local training origin is index65 and minimum visible history126rows, with the origin lattice fixed before metadata counts.
+
+Independent precode review precedes acquisition and implementation. Synthetic controls precede any historical accuracy. Exact source, panel, parent, candidate, case and evaluator hashes will bind the sole comparisons. Pairwise training success cannot replace held-out rank admission. No publication or official submission is authorized by this experiment.
+
+Current state: **REJECTED_METADATA_ELIGIBILITY_BEFORE_NUMERIC_IMPLEMENTATION**. Independent amended review permitted the sole metadata-only acquisition. Sixteen exact official1996–2011 archives were acquired, but the fixed ten-market intersection begins in1999 and its strict126-report uninterrupted weekly guard retains zero development and zero reserved origins. All133 skipped lattice origins and source/member/schema/code/date hashes are preserved. No financial-value conversion, numerical panel, candidate, control, House call or forecast outcome exists in this folder. The method is stopped without weakening the cadence, date, roster or45/four-year rule.
+
+Root's official feedback later confirmed v4 score0.1222 versus v2 score0.3462; v2 is the best submitted incumbent. The next priority is diagnosing that official regression from exact source and finite representative replay. Metadata rejection provides no causal explanation for the official score.

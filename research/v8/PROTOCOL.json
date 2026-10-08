@@ -1,0 +1,367 @@
+{
+  "version": "t4-v2-compact-source-projection-v8",
+  "phase": "PROTOCOL_ONLY_NO_CANDIDATE_OR_OUTCOMES",
+  "authorization": "Root requested a separate protocol only: exact best V2 controller/prompts/policy plus one deterministic target-relevant compact evidence projection informed by primary FinRobot and EDINET-Bench sources. Root and independent precode review required before implementation.",
+  "baseline": {
+    "path": "t4/submission1008v2/source",
+    "official_submission": 968359,
+    "official_score": 0.3462,
+    "source_hashes": {
+      "t4/submission1008v2/source/._analyze.py": "b85339d4aae519b3653d50d785588351e37903b1284d298ee927492a7d7d8206",
+      "t4/submission1008v2/source/._house_analyze.py": "b85339d4aae519b3653d50d785588351e37903b1284d298ee927492a7d7d8206",
+      "t4/submission1008v2/source/analyze.py": "24f50b7ecd20257d48e709a4e554848cefac6819d8b63fa7aa5b6552637b656e",
+      "t4/submission1008v2/source/house_analyze.py": "f9c544ee2a707ca7778f9b838855afb5037eca4f8e3103c84cec42cbdbeaac9d"
+    },
+    "status": "Best submitted incumbent; immutable. V4 968634 scored0.1222, and its multi-mechanism regression is not causal evidence for this single mechanism."
+  },
+  "hypothesis": "Replacing repeated/topical-but-unfocused V2 frozen_evidence with bounded exact task-relevant source windows may improve evidence accessibility without increasing House work. Compact context can also discard useful cross-table information; admissibility and genuine paired quality are required.",
+  "one_change": "Only the JSON entities[i].frozen_evidence list is replaced by one deterministic source projection. Compute the exact V2 evidence_for output first. Its original spans remain the input to exact V2 historical_signal, reason_passages, quote_claims, submitted reason selection and output citations. No new numeric feature or transformed table is emitted.",
+  "unchanged": [
+    "Exact V2 system and user instruction strings, task fields, contract, entity fields, output schema, key ordering, ensure_ascii=False serialization and structural-repair suffix",
+    "Batch size4, MAX_REQUESTS25, two attempts/batch, temperature0, model/seed/output4000, V2 timeout min90 and remaining530/remainingbatches",
+    "Exact V2 load_corpus/compile_spec/manifest_labels/Retriever/historical_signal code and all numeric forecasts/labels/interval/reason validation",
+    "Exact original V2 reason_evidence, historical_signal values, output claims, source coordinates, reason selection/deduplication and caps",
+    "No review/prior/feature/compiler/procedural-memory/case-memory/test-time-weight-update combination",
+    "No V7 scheduler, absolute-deadline, atomic publication or output contract modification in this arm"
+  ],
+  "limitations_of_fixed_policy": "V2 reason_evidence and output claims may cite original spans outside the new frozen_evidence projection; this is intentional to isolate forecast evidence. The exact original reason_evidence remains visible. Projection quality cannot be inferred from those unchanged citations. V2 clock still starts after loading; scheduler/deadline repairs belong to V7 and are not silently combined.",
+  "inputs_and_inventory": {
+    "source_inventory": "PRECODE_SOURCE_INVENTORY.json",
+    "inventory_sha256": "967c86783b5152f61c89a76e75a65048e7db606f4ce81a5fff96ce4f4f758098",
+    "denominator": {
+      "units": 11,
+      "entities": 78,
+      "distinct_target_names": 10
+    },
+    "eligibility": "Only exact manifest-declared/no-follow/digest-verified pre-cutoff documents returned by unchanged V2 load_corpus. Never search reference/, outcomes, checks, canaries, other submissions or excluded dated documents. Keep original documents and manifests immutable.",
+    "metadata": "Read the same digest-verified JSON bytes to inspect source/form_type/doc_type/cik/ticker/series_id/period_of_report where present; do not add a second unverified path read. Metadata fields are used only for eligibility/context audit, not as synthetic financial facts."
+  },
+  "projection": {
+    "scope": "Search the exact V2 permitted pool. If V2 permitted is empty and falls back to docs, return exact original spans: do not add a new ownership repair or fallback behavior. Unknown target_name also returns exact original spans. The fixed target-family lexicon below has no task/unit/entity IDs or outcome labels.",
+    "ownership": "A proposed issuer window must be in an entity-labeled document and metadata cik/ticker must agree whenever both document and entity expose the corresponding field; shared issuer documents need an explicit entity anchor in the retained source window. For macro/table shared documents require exact declared series/component/tenor/contract anchor in metadata, original header or retained source introduction. Ambiguous/conflicting ownership returns exact V2 spans for that entity rather than dropping documents or relaxing safeguards. No hypothetical default clause becomes a feature/probability.",
+    "candidate_blocks": "Use exact document_text coordinates. Recognize pipe tables as a maximal contiguous run of pipe-containing lines, with its complete original header, all columns and all rows; never project cells/columns, derive deltas, reorder rows, normalize scale or join separated text. Non-pipe SEC flattened text is treated as prose unless a conservative line/heading-delimited block is recognizable. Prose candidates are contiguous exact slices expanded to full sentence boundaries (terminal period/question/exclamation before whitespace) or full nonempty line boundaries. Decimal punctuation without following whitespace is not a boundary. Do not split negation, conditional, uncertainty or mitigation sentences; include one preceding and one following complete sentence for credit-event matches.",
+    "context_closure": "For each direct match, retain its containing complete block and exact nearby context needed for source/issuer, period, units, denominator/row/column meaning, accounting basis or conditional meaning as listed by the family. Search at most1600characters before and1600after the matched block for explicit context; keep context contiguous with the block when possible. If source identity/report-period is only in the exact document introduction, it may use one of the four slots as an exact prefix ending at a complete boundary, maximum1200characters. Table blocks retain the original immediately preceding source/title/units/vintage introduction if its nearest preceding blank paragraph is at most1600characters. Do not synthesize a missing heading/date/unit or infer current-quarter versus YTD from numeric magnitudes. If a required qualifier cannot be retained reliably, reject that proposed block and record the reason.",
+    "matching": "NFKC/casefold and whitespace-collapsing are used only for literal/substring pattern matching, while stored text remains exact. Require at least one direct pattern, or an exact target name with underscores converted to spaces. Mechanism-only candidates cannot displace direct target evidence. Eligibility and lexical hits never convert financial strings into numbers.",
+    "ranking": "After required-context closure, deterministic tuple: direct-target-token/exact-series match presence descending, distinct direct-pattern count descending, distinct mechanism-pattern count descending, explicit target-period mention presence descending (literal task period strings only), doc_date descending, doc_id ascending, span_start ascending. No figure magnitude/sign/stock outcome, model score, task ID or post-outcome choice. A lexical count is relevance metadata, never a predictive financial feature.",
+    "deduplication": "Merge overlapping selected slices from the same doc only when the merged exact contiguous slice fits the budget; otherwise keep the higher-ranked slice. Duplicate/overlap removal cannot remove a required qualifier. No artificial separator is inserted inside text.",
+    "budget": "Maximum4 exact span objects, shape exactly {doc_id,span_start,span_end,text}. Perentity compact-serialized frozen_evidence UTF8bytes must be <=min(12000,exact_original_V2_frozen_evidence_bytes). Count JSON escaping/docIDs/offsets, not raw text alone. Select whole context-closed blocks in ranked order while reserving any needed source-introduction slot. Do not truncate a selected block to fit. If the direct target block/context cannot fit, or no direct candidate survives, return exact V2 spans and record a declared fallback; no entity or batch omitted.",
+    "fallback": "Fallback is entire original frozen_evidence list unchanged, not a hybrid mixing arbitrary unmatched windows. Reason_evidence/history/claims are original V2 in every case. At runtime future unsupported or ambiguous inputs follow this same deterministic rule. Fallback keeps roster contracts but counts as zero transformed coverage, never as a compact-projection success."
+  },
+  "families": {
+    "eps_outcome": {
+      "kind": "issuer_statement",
+      "direct_patterns": [
+        "earnings per share",
+        "diluted earnings",
+        "diluted net income",
+        "net income per share",
+        "guidance",
+        "outlook"
+      ],
+      "mechanism_patterns": [
+        "revenue",
+        "net sales",
+        "gross margin",
+        "operating income",
+        "cash flow",
+        "share repurchase"
+      ],
+      "required_context": [
+        "matching issuer",
+        "reporting quarter or fiscal year",
+        "USD/share or per-share label for EPS rows",
+        "GAAP/non-GAAP and basic/diluted distinction when stated"
+      ]
+    },
+    "eps_yoy_direction": {
+      "kind": "issuer_statement",
+      "direct_patterns": [
+        "earnings per share",
+        "diluted earnings",
+        "diluted net income",
+        "net income per share",
+        "guidance",
+        "outlook"
+      ],
+      "mechanism_patterns": [
+        "revenue",
+        "net sales",
+        "gross margin",
+        "operating income",
+        "cash flow",
+        "share repurchase"
+      ],
+      "required_context": [
+        "matching issuer",
+        "reporting quarter or fiscal year",
+        "comparison-period heading for comparisons",
+        "GAAP/non-GAAP and basic/diluted distinction when stated"
+      ]
+    },
+    "eps_yoy_growth_pct": {
+      "kind": "issuer_statement",
+      "direct_patterns": [
+        "earnings per share",
+        "diluted earnings",
+        "diluted net income",
+        "net income per share",
+        "net interest income",
+        "net interest margin",
+        "provision for credit losses"
+      ],
+      "mechanism_patterns": [
+        "deposit",
+        "noninterest income",
+        "net charge-offs",
+        "loan",
+        "capital ratio",
+        "share repurchase"
+      ],
+      "required_context": [
+        "matching issuer",
+        "quarter versus year-to-date",
+        "current and comparative period headings",
+        "per-share versus amount/percent units",
+        "basic/diluted and GAAP/non-GAAP distinction when stated"
+      ]
+    },
+    "credit_event_12m": {
+      "kind": "issuer_statement",
+      "direct_patterns": [
+        "going concern",
+        "substantial doubt",
+        "liquidity",
+        "failed to pay",
+        "defaulted",
+        "covenant",
+        "maturity",
+        "debt maturities"
+      ],
+      "mechanism_patterns": [
+        "cash flow",
+        "cash and cash equivalents",
+        "revolving credit",
+        "refinanc",
+        "working capital",
+        "restructur"
+      ],
+      "required_context": [
+        "matching issuer",
+        "disclosure or report date",
+        "entire conditional/negation/mitigation sentence and adjacent sentence",
+        "debt amount currency/scale or debt maturity date when numeric figures are cited"
+      ]
+    },
+    "earnings_reaction": {
+      "kind": "issuer_statement",
+      "direct_patterns": [
+        "guidance",
+        "outlook",
+        "earnings per share",
+        "net sales",
+        "revenue",
+        "gross margin"
+      ],
+      "mechanism_patterns": [
+        "segment",
+        "demand",
+        "repurchase",
+        "operating income",
+        "foreign exchange"
+      ],
+      "required_context": [
+        "matching issuer",
+        "pre-event reporting period",
+        "guidance period and forward-looking qualifier",
+        "currency/scale for tabular amounts"
+      ]
+    },
+    "bid_to_cover_ratio": {
+      "kind": "table_or_policy",
+      "direct_patterns": [
+        "bid-to-cover",
+        "bid to cover",
+        "competitive tenders",
+        "indirect bidder",
+        "direct bidder",
+        "primary dealer"
+      ],
+      "mechanism_patterns": [
+        "auction",
+        "reopening",
+        "offering",
+        "high yield"
+      ],
+      "required_context": [
+        "same declared tenor",
+        "auction/report dates",
+        "complete original table header and rows",
+        "ratio versus percent/amount labels",
+        "new/reopening qualifier when stated"
+      ]
+    },
+    "net_positioning_change_pct_oi_rank": {
+      "kind": "table_or_policy",
+      "direct_patterns": [
+        "noncomm_net",
+        "noncommercial",
+        "net_%OI",
+        "open_interest",
+        "wow_change_net"
+      ],
+      "mechanism_patterns": [
+        "long",
+        "short",
+        "positioning",
+        "futures only"
+      ],
+      "required_context": [
+        "same commodity/contract and exchange",
+        "report_date and publication availability",
+        "futures-only/report category",
+        "open-interest and net-position units/definitions",
+        "complete original table header and rows"
+      ]
+    },
+    "cpi_component_mom_first_print": {
+      "kind": "table_or_policy",
+      "direct_patterns": [
+        "month-over-month",
+        "month over month",
+        "seasonally adjusted",
+        "first print",
+        "first prints"
+      ],
+      "mechanism_patterns": [
+        "consumer price",
+        "cpi",
+        "energy",
+        "shelter",
+        "vehicle",
+        "food"
+      ],
+      "required_context": [
+        "same series/component or shared wide-table target column",
+        "reference months",
+        "frozen vintage/as-of date",
+        "SA/NSA and MoM/YoY distinction",
+        "complete original table header and rows including all columns"
+      ]
+    },
+    "next_estimate_revision_direction": {
+      "kind": "table_or_policy",
+      "direct_patterns": [
+        "vintage table",
+        "reference_month",
+        "as_of_",
+        "revision schedule",
+        "revision notes"
+      ],
+      "mechanism_patterns": [
+        "advance estimate",
+        "revised",
+        "seasonally adjusted"
+      ],
+      "required_context": [
+        "same series_id",
+        "reference-month rows",
+        "every original as-of header",
+        "vintage availability dates and first/subsequent estimate distinction",
+        "level currency/scale or rate units",
+        "complete original table header and rows"
+      ]
+    },
+    "yield_change_bps_intermeeting": {
+      "kind": "table_or_policy",
+      "direct_patterns": [
+        "federal funds",
+        "target range",
+        "committee",
+        "median",
+        "inflation",
+        "yield",
+        "treasury"
+      ],
+      "mechanism_patterns": [
+        "labor",
+        "unemployment",
+        "balance sheet",
+        "economic activity",
+        "projection"
+      ],
+      "required_context": [
+        "policy statement/projection publication date",
+        "same maturity/series for rate table or shared policy statement",
+        "percent yield versus basis-point change",
+        "complete policy sentences and original table header/rows"
+      ]
+    }
+  },
+  "preaccuracy_coverage_stage": {
+    "fixed_cases": "All11/78 inventoried public visible cases; no cherry-picked entity subset and no prediction or House calls. Their prior practice/replays are consumed and cannot prove accuracy.",
+    "records": [
+      "Perentity full original and projected span coordinates/text SHA256 plus exact source/slice equality",
+      "Manifest source/owner/period metadata and agreement, task period/units/series fields; retained explicit source context text/slices",
+      "Selected direct/qualifier matches, table completeness and no synthetic numerical values",
+      "Every fallback/rejection with code including owner_conflict, unknown_family, flattened_ambiguous, missing_period, missing_units, oversized_context, no_direct_match",
+      "Perunit/family/entity transformed/fallback counts, exact total user prompt bytes, largest initial/repair prompt bytes, original reason_evidence/history/claim equality"
+    ],
+    "gate": [
+      "100% roster accounted: exactly11units/78entities, every inventoried target family represented, zero ownership conflict admitted, zero slice mismatch",
+      "At least1 transformed entity in every distinct target family; at leastceil(.50*n_family) transformed entities per family, and at leastceil(.75*78)=59overall. Fallbacks never rescue these thresholds. Reject if flattened SEC/period gaps make this infeasible; no lexical/budget/roster threshold tuning on coverage observations.",
+      "For every selected block, explicit required qualifiers pass independent finite source audit; missing qualifier selects fallback and counts against coverage",
+      "Every projected entity payload<=exact original bytes; aggregate complete initial userprompt bytes<=.90 exact V2 bytes over all11units; largest initial/repair prompt does not exceed exact V2 corresponding prompt",
+      "100% original reason_evidence/historical_signal/output quote_claim inputs remain byte-identical; first-party original source hashes unchanged"
+    ],
+    "controls_before_replay": [
+      "Exact quote offsets for Unicode/NFKC/CRLF and punctuation containing decimals; no cleaned text emitted",
+      "Issuer/cik/series/tenor mismatch including another issuer in shared statements; unknown/missing/conflicting metadata returns exact V2 fallback",
+      "Quarter/YTD, basic/diluted, GAAP/non-GAAP, amount/scale/percent units and first/subsequent vintage retained or exact fallback",
+      "Full pipe header/all rows/all columns, malformed/oversized table fallback; no parsed-cell synthetic summaries",
+      "Credit negation/conditional/mitigation and actual-current-distress source sentences retained mechanically without probability claim",
+      "Postcutoff/symlink/digest/private-reference rejection inherited unchanged",
+      "Deterministic ordering/dedupe/wholeblock budgeting, exact original fallback and everyentity contract completion",
+      "Prompt/content equality for all fields except frozen_evidence, requestcount/batch/timeout formula unchanged with synthetic clock"
+    ],
+    "governance": "Independent protocol review first; then root implementation authorization. Before any control/replay freeze exact baseline/protocol/candidate/lexicon/parser/harness/inputs and expected gates. Any necessary source-only repair preserves predecessor and is reviewed before rerun; no threshold/feature/candidate grid. Independent saved coverage audit precedes any genuine model quality stage."
+  },
+  "genuine_quality_stage": {
+    "state": "HOLD; separate fresh-case eligibility and source-only freeze required after coverage succeeds. No existing development or reserved CFTC slices recycled, no organizer hidden outcomes/checks, no public-practice score relabeled as reserve.",
+    "paired_design": "Root must approve a finite matched genuine House experiment on independent labeled historical financial cases that are demonstrably available at each cutoff, same fixed denominator, model/seed/batches/contract for V2 and V8. Preserve every prediction and failed unit; no simulated client financial scores. No implementation is submitted merely because coverage/control checks pass.",
+    "metrics": "Report fullunit/roster completion, actualtotal/first/late latency, requestcounts andpromptbytes; point/rank/interval losses in declared target units, labelassertion consistency, unsupported financial premises and harmful changes. Aggregate task-family scores only with fixed declared normalizers; no post-outcome entity dropping, family weighting or positive-only slice.",
+    "admission": "Before labels/model calls, root and independent reviewer must fix exact number/years/roster/case source split, loss/uncertainty thresholds and sufficient family coverage. If legal fresh genuine House quality is unavailable or inadequate, retain HOLD. This protocol does not invent statistical victory thresholds without a valid benchmark."
+  },
+  "publication_or_submission": false,
+  "candidate_implemented": false,
+  "house_calls": 0,
+  "numeric_outcomes": null,
+  "research_basis": [
+    {
+      "title": "FinRobot: An Open-Source AI Agent Platform for Financial Applications using Large Language Models",
+      "url": "https://arxiv.org/abs/2405.14767v2",
+      "github": "https://github.com/AI4Finance-Foundation/FinRobot",
+      "saved": [
+        "experiments/optimization1008v3/research/finrobot-primary-v2.txt",
+        "experiments/optimization1008v3/research/finrobot-primary-abstract-v2.txt",
+        "experiments/optimization1008v3/research/finrobot-current-readme.txt"
+      ],
+      "use": "Task-relevant financial data and source-aware decomposition inspire this evidence-only arm. The paper/current evolving framework is not evidence that our compact projection will improve Agenthon or a historical winner."
+    },
+    {
+      "title": "EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Annual Reports",
+      "url": "https://arxiv.org/abs/2506.08762v2",
+      "saved": [
+        "experiments/optimization1008v3/research/edinet-bench-primary-v2.txt"
+      ],
+      "use": "Primary abstract and input ablations emphasize cross-table/text context, marginal binary-task advantage over logistic baselines, and that adding text is not established earnings improvement. Retain accounting/date/table context and test actual quality; do not assume less/more text wins."
+    },
+    {
+      "title": "Financial Statement Analysis with Large Language Models",
+      "url": "https://arxiv.org/abs/2407.17866",
+      "saved": [
+        "experiments/optimization1008v3/research/financial-statement-analysis-current-status.txt"
+      ],
+      "use": "Withdrawn Feb2025 for data inconsistencies; claimed predictive outperformance excluded as supporting evidence."
+    }
+  ]
+}

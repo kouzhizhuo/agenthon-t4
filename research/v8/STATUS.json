@@ -1,0 +1,16 @@
+{
+  "state": "REJECTED_PRECODE_SOURCE_COVERAGE_INFEASIBLE",
+  "reason": "All69 manifested public documents lack nonemptyentity_ids/shared:true. Frozen exactV2scope then requires originalfallback all78entities and all10families; transformedmaximum0<required59. No projection/House was needed.",
+  "candidate_implemented": false,
+  "control_runs": 0,
+  "projection_or_prompt_replay_runs": 0,
+  "house_calls": 0,
+  "numeric_or_reference_outcome_access": false,
+  "publication_or_submission": false,
+  "exact_baseline": "V2_968359_0.3462",
+  "v7_unchanged": true,
+  "protocol_sha256": "08d5b10f72f4cf23ce8155bf4b819bb4bacff45c1cb72c22de5a869f152f7e43",
+  "independent_precode_review": "independent_precode_track3_receipt.json",
+  "source_contract_diagnosis": "source_contract_diagnosis/EXACT_METADATA_MATCHES.json",
+  "metadata_equality_is_not_changed_admission_authorization": true
+}

@@ -1,0 +1,10 @@
+{
+  "state": "PROTOCOL_ONLY_AWAITING_INDEPENDENT_PRECODE_REVIEW",
+  "candidate_implemented": false,
+  "control_runs": 0,
+  "house_calls": 0,
+  "publication_or_submission": false,
+  "best_submitted_incumbent": "V2_968359_0_3462",
+  "baseline_scheduler": "V4_968634_0_1222",
+  "causal_official_component_attribution": false
+}

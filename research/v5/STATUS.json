@@ -1,0 +1,52 @@
+{
+  "state": "REJECTED_FINITE_HISTORICAL_DIAGNOSTIC",
+  "candidate_admitted": false,
+  "publication_or_submission_of_v5": false,
+  "parent_official_candidate": "t4/submission1008v4",
+  "development_origins": 28,
+  "reserved_origins": 21,
+  "reserved_years": [
+    2020,
+    2022,
+    2023
+  ],
+  "reserved_rank_rho_parent": 0.03780663780663781,
+  "reserved_rank_rho_candidate": 0.032034632034632034,
+  "reserved_rho_gain": -0.0057720057720057755,
+  "paired_year95_rho_gain": [
+    -0.0202020202020202,
+    0.021212121212121217
+  ],
+  "reserved_MAE_ratio": 0.8954347417503767,
+  "interval_score_ratio": 1.0,
+  "coverage": 0.6095238095238095,
+  "admission_conditions": {
+    "material_rho_gain_at_least_0_03": false,
+    "paired_year_lower95_above0": false,
+    "no_year_rho_regression_over0_05": true,
+    "mae_no_regression_over5pct": true,
+    "interval_score_no_regression_over5pct": true,
+    "at_least4years45origins": false
+  },
+  "main_limit": "Reserved21wholecrosssections/3years belowpredeclared45/4years; retrospectiveFridayreleaseapproximation; noHouse/productionfaithfulness/officialscore.",
+  "results_hashes": {
+    "development": "df0680f98bd56ab50bbd5b206617d410226dd0fb46087f7c6352e7d4a351a10b",
+    "reserved": "99201775ad49c2a9d1af8c4f812ed8d7291e2ae1be6912f1f61b4111872d2c4e"
+  },
+  "lessons": "Pooledshrinkage reducednumericalMAE withoutincrementalcrosssectionrankinginformation. Preserveparent; noextraarm/reslicing thisbenchmark.",
+  "independent_saved_result_audit": {
+    "reviewer": "/root/track3",
+    "forecast_runs": 0,
+    "runtime_edits": false,
+    "maximum_absolute_recomputed_error": 0.0,
+    "receipt": "independent_results_track3_receipt.json",
+    "receipt_sha256": "3ae0c5ee408e395643fdaf42325fdeb1486efc73db5635d1ca6c8ed92c64593a"
+  },
+  "next_proposal": {
+    "file": "NEXT_HYPOTHESIS.md",
+    "state": "UNIMPLEMENTED_PROTOCOL_AND_EVIDENCE_PLAN_ONLY",
+    "new_forecasts": 0,
+    "new_submissions": 0,
+    "consumed_benchmark_reused_as_holdout": false
+  }
+}

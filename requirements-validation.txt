@@ -1,0 +1,4 @@
+# The analyzer is standard library only. These are local validation dependencies.
+jsonschema>=4.22,<5
+numpy>=1.26,<3
+pytest>=8,<10

@@ -1,0 +1,42 @@
+{
+  "state": "REJECTED_METADATA_ELIGIBILITY_BEFORE_NUMERIC_IMPLEMENTATION",
+  "new_source_archives": 16,
+  "metadata_eligibility_read": true,
+  "numeric_panels": 0,
+  "candidate_implemented": false,
+  "synthetic_control_runs": 0,
+  "historical_forecast_runs": 0,
+  "house_calls": 0,
+  "publication_or_submission": false,
+  "selected_parent": "t4/submission1008v2",
+  "consumed_v5_benchmark_reuse_as_holdout": false,
+  "official_v4_feedback": {
+    "submission_id": 968634,
+    "score": 0.1222,
+    "previous_best_v2": 0.3462,
+    "status": "Finished",
+    "reported_by": "Root browser",
+    "detail_path": "experiments/official_feedback1008_1628/t4-v4-detail.txt"
+  },
+  "metadata_result_sha256": "444e337df6308b1f5b865cf7bb39c55c3f207225fed12277e57d3057624c44c4",
+  "metadata_counts": {
+    "development": {
+      "origins": 0,
+      "years": [],
+      "skips": 51
+    },
+    "reserved": {
+      "origins": 0,
+      "years": [],
+      "skips": 82
+    }
+  },
+  "failure_policy": "No cadence/date/block/market relaxation, no numerical V6, prioritize official V2 vs V4 source diagnosis.",
+  "independent_metadata_audit": {
+    "receipt": "independent_metadata_track3_receipt.json",
+    "sha256": "77787be4063647160422f0bf8d871170826656a256bc416d12090a7ab3ed23d6",
+    "reviewer": "/root/track3",
+    "result": "EXACT_SOURCE_DATE_CASE_HASHES_RECONSTRUCTED_ELIGIBILITY_REJECTED",
+    "forecast_runs": 0
+  }
+}

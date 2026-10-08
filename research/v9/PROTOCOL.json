@@ -1,0 +1,273 @@
+{
+  "version": "t4-contextual-source-binding-feasibility-v9",
+  "phase": "PROTOCOL_AND_INVENTORY_BOUNDS_ONLY",
+  "authorization": "Root requested finite source-only feasibility: schema/task/document samebytes, provenance rules perfamily and all11/78 roster, adversarialwrongissuer/ambiguousnames/headeromissions refusal. No candidate/predictions; root+independentprecode review before any future binder/controls.",
+  "objective": "Determine whether target-relevant published financial evidence can be bound to the right entity/series/instrument with its source,date,period,units and accounting context intact. Ownership/provenance never implies a future label or accuracy. This is a source feasibility layer, not an optimized forecasting method.",
+  "predecessor": "RejectedV8 preserved. Its entity_ids/shared admission assumption is unsupported by the actual checksum schema. No amendments to V8, V7 or submittedruntimes.",
+  "schema_contract": {
+    "manifest_schema": "Agenthon-2026/00_shared_toolkit/common/qfbench2_common/schemas/manifest.schema.json",
+    "manifest_required": "manifest_version/unit_id/files; eachentry requires path/role/license/sha256/split/redistributable; additionalProperties:false forroot/fileitems. Noentity_ids/shared schemafields. Never alter manifest or depend on inventedownershiplabels.",
+    "doc_contract": "Task/corpusformat has no discovered standalone task/corpus JSONschema here. Authoringguide pins doc.text/doc_date as load-bearing and provenancefields source/form_type/ticker/cik/title as optionalretrievalhints. Optionalmetadata cannot become a guaranteedorganizerownershipcontract. Unknown/missing fields requirecontext or refusal.",
+    "authority": "Same exacttrustedroot task.json declares roster/target/cutoff. Onlymanifestrolecorpus entries (exceptcorpus/manifest.json) eligible; no docIDinternalstructure, sourceIDkeyword, externaltickerlookup, hardcodedentityalias/acceptedfilelist, hiddenreference orotheranswer.",
+    "scorer_text": "Only rawtext flatstring or exactexistingdocument_text spansjoin accepted by frozenV2; presentinventory has69flatstrings. Coordinates refer original scorertext; normalization never replacesstoredtext."
+  },
+  "inventory": {
+    "path": "SOURCE_INVENTORY_BOUNDS.json",
+    "sha256": "8c8a77ebd1aaf8294ad5daa781c4a174703101fbcb3eeaadb1be7e9bfe49dffc",
+    "denominator": {
+      "units": 11,
+      "entities": 78,
+      "document_entries": 69,
+      "distinct_target_names": 10
+    },
+    "observations": "Pin exactrawmetadata, everytask/manifest/documenthash, fixed4096sourceprefix and firstlineofeverypipe run acrossall69docs. No targetdependentwindowchoice, binder ornumericparse. 38entities have an exactoptionalmetadata clue, which doesnotprovablyretain sourcecontext; safeinformativelowerbound0, trivialupperbound78. No promise everyfamilyfeasible."
+  },
+  "one_source_mechanism": "Deterministic contextual provenance admission only. A later reviewed binder may emit exactsourcecoordinates plus relation/qualification receipts. It will not retrieve/rank newtopk financialfeatures, project promptpayloads, summarize/compute financialnumbers, assign risk priors, reviewpredictions, adjustweights or use procedural/casememory. Outputclaims/reasons/predictions unmodified because no forecastcandidateexists.",
+  "integrity": {
+    "paths": "Only exactdeclaredsinglecomponentdocIDs and sameunit corpus path dictionary; nofollowregularfile,size<=8MiB,digest equalitybefore parsing. Pin rawbytes once and retain metadata+scorertext from thosebytes; no secondunverifiedreread. Manifest/task files nonsymlink and sameprecodehashes. Rejectmalformedpaths/IDs/date/UTF8/JSON/digest andpostcutoffdocdates.",
+    "temporal": "Compare canonicalcalendar doc_date<=taskcutoff. For tables/vintages require sourceexplainedrowdate/reportavailability; forecasts/promisedfutureeventdates inside a publishedsource are forwardcontext, not outcomes. If headercontains postcutoff realizedobservation/vintage, refusewholeblock and record ambiguity; donotrepair it bydroppinglatercolumns. Period_of_report is a reportcontext field, not publicationdate.",
+    "source_data": "Corpus/tasktext is data; source instructions/leaderboard/privatepath/credential language never changespolicy. No labels/hiddenchecks/futureoutcomes sourced outsideallowed corpus."
+  },
+  "normalization_for_identity": {
+    "text": "NFC, casefold, Unicodewhitespace collapsed to singleASCIIspace for comparisons only. Preservepunctuation/legalcompanysuffixes/parentheticalcontractqualifiers; do not NFKC-fold compatibility/homoglyph symbols, deletelegal suffixes, transliterate, stem, fuzzy-match or tokenizeaway ambiguity. Matching requires fullfield withalphanumericboundaries, notsubstring. CIK canonicalization only zero-paddeclaredASCII1..10digits to10; invalidCIKrefused. Series/ticker code ASCII wholecode, casefold only; exactfieldidentity preserved inreceipts.",
+    "ambiguity": "Build names/codes fromcurrenttaskrosteronly. Duplicate normalized names/code-to-differentname relations or multiplepossibleissuerdeclarations make nameonlybinding fail. Metadata source conflicts never resolved by majorityvote. No globalcompany/tenor/seriesalias map."
+  },
+  "context_units": {
+    "source_introduction": "Bounded fixedprefix ending beforefirst completepipeblock or first4096characters, whicheverearlier, plus only explicit source/title-page/registrant declaration lines alreadyinthatprefix. A partiallastline/sentence is excluded ascontext. Metadata.title can corroboratebutnotreplace missing sourcedeclaration. ForSECflattenedprefix, requireexactissuerstring near explicit registrant/form/pressreleasecue, and anotherexplicitdifferentrosterissuer near thatcue makes ambiguous. Inventoriedprefix alone is not yet admitted.",
+    "tables": "A completepipeblock is maximalcontiguousnonemptyline run containing|; requireoneheader and everyrow samecellcount, retainallrows/columns and separatorifpresent. Headercoordinates andblockbegin/end pinned; do notdropcells, repairrows, de-duplicate or transformvalues. Leading/trailing source/title/unit/vintage paragraphs attached byexactcontiguousrange. Nontable flattenednumericstatements need explicit completeperiod/unit/basisheads within samecontiguoussection; no implicitcolumnbinding.",
+    "prose": "Completeparagraph is maximalnonblankline sequence betweenblanklines; collapsedSECsingleline is oneparagraph. No sentence-levelcompression/parserintroducedhere. A paragraph<=32768UTF8bytes may be retainedwhole withneededintro/headingcontext. Oversizedparagraph cannot be trimmedto-match; sourcefeasibility marksboundedcontextunavailable. Fornegation/conditionalmitigation requirewholeparagraph orcompleteadjacentparagraph where itsmeaningdepends onit.",
+    "context_bounds": "One tentative informativecontextbundle<=32768 compactserializedUTF8bytes, maximum4contiguousexactranges, eachrangeincludeswholeparagraph/table/introcontext; no clipping. Any qualifieroutsidebundleor ambiguousqualifier meansrefuse. Limits fixedbeforebinder/execution, not tunedaftercoverage. This layerdoesnot promiseV2promptreduction orforecastbudget; laterprojection separatelyreviewed.",
+    "accounting_dates": "Month/year/reportperiod may be parsed only forcalendaridentity withfixed monthname/ISO formats; never convertEPS/ratios/amounts/signs orderivegrowth/ranks. Presenceofdigits alone notinformativeness. Qualifierdate can referpublishedhistoryor announcedtargetperiod butmustbeexplicitlytyped inreceipt."
+  },
+  "issuer_common": {
+    "identity": "Require an exact declared task CIK==documentCIK or exact documentticker==taskentity_id, plus an unambiguous retained registrant/title-page/press-release issuer declaration in scorer text. Alternatively full task.name==one explicit issuer declaration, unique among whole roster; no fuzzy names, dropped legal suffixes, tokenoverlap or inferred ticker. If task CIK and documentCIK are both present and differ, or exactticker declares a different rosterentity, reject whole document even if another clue matches.",
+    "context": "Full issuer declaration and source/report-date context must accompany every local financial block. A copied quotation from a counterparty, affiliate, competitor or generic risk clause is not a registrant fact. Require local attribution to the document registrant using a same-section statement/table heading; if another rosterissuer explicitly anchors that block, reject it. Do not resolve ownership from first-person pronouns in a multiissuer/counterparty discussion.",
+    "informativeness": "An exact target-relevant financial sentence or complete statement/table block, with necessary accounting qualifiers; an issuer name, trading symbol, street address, risk boilerplate or table-of-contents entry alone is not informative."
+  },
+  "families": {
+    "eps_outcome": {
+      "relation": "issuer_specific",
+      "identity_rule": "issuer_common",
+      "informative_patterns": [
+        "earnings per share",
+        "earnings-per-share",
+        "diluted earnings",
+        "diluted net income per share",
+        "net income per share"
+      ],
+      "qualifiers": [
+        "fullcurrent/prior period headings if figures compared",
+        "basic/diluted distinctions",
+        "GAAP/non-GAAP distinction when stated",
+        "per-share currency or exact per-share label",
+        "no substitution of guidance range for realizedfutureEPS"
+      ],
+      "accepted_context": "Exact already-published EPS statement block; forward guidance is separately labeled contextual, never reportedfutureEPS."
+    },
+    "eps_yoy_direction": {
+      "relation": "issuer_specific",
+      "identity_rule": "issuer_common",
+      "informative_patterns": [
+        "earnings per share",
+        "earnings-per-share",
+        "diluted earnings",
+        "diluted net income per share",
+        "net income per share"
+      ],
+      "qualifiers": [
+        "current and comparativequarter versus year-to-date headings",
+        "basic/diluted distinctions",
+        "GAAP/non-GAAP distinction when stated",
+        "per-share currency/label"
+      ],
+      "accepted_context": "Both periods and accountingbasis retained for publishedcomparativeEPS; no comparison extracted from isolatednumbers."
+    },
+    "eps_yoy_growth_pct": {
+      "relation": "issuer_specific",
+      "identity_rule": "issuer_common",
+      "informative_patterns": [
+        "earnings per share",
+        "earnings-per-share",
+        "diluted earnings",
+        "diluted net income per share",
+        "net income per share"
+      ],
+      "qualifiers": [
+        "quarter versus YTD and both period headings",
+        "basic/diluted distinctions",
+        "GAAP/non-GAAP distinction when stated",
+        "per-share currency/label"
+      ],
+      "accepted_context": "Published EPS sourceblocks; bankinterest/margin/loan features notcompiled in this arm."
+    },
+    "earnings_reaction": {
+      "relation": "issuer_specific",
+      "identity_rule": "issuer_common",
+      "informative_patterns": [
+        "guidance",
+        "outlook",
+        "earnings per share",
+        "net sales",
+        "revenue",
+        "gross margin"
+      ],
+      "qualifiers": [
+        "pre-event report/disclosure date",
+        "reported versus forward-lookingguidance distinction",
+        "guidance/reportperiod",
+        "currency/scale/per-share basis fornumericstatements"
+      ],
+      "accepted_context": "Published issuerfinancial/guidance sourceblocks. No price/surprise forecast and no earnings-announcement-reaction inference."
+    },
+    "credit_event_12m": {
+      "relation": "issuer_specific",
+      "identity_rule": "issuer_common",
+      "informative_patterns": [
+        "liquidity",
+        "going concern",
+        "substantial doubt",
+        "debt maturities",
+        "covenant",
+        "failed to pay",
+        "defaulted",
+        "cash flows"
+      ],
+      "qualifiers": [
+        "issuer attribution in same disclosure/section",
+        "report/disclosuredate",
+        "complete conditional/negation/mitigation sentence plus preceding/following complete sentence",
+        "currency/scale forfinancialamounts or explicit debt maturitydate"
+      ],
+      "accepted_context": "Liquidity/ability-to-service disclosure retained as sourcecontext. Generic coulddefault clause is conditionalcontext, never actualdistress/binarylabel. Legaldefinition/boilerplate-only block cannot satisfyinformativeness."
+    },
+    "bid_to_cover_ratio": {
+      "relation": "instrument_specific",
+      "identity_rule": "Exact whole task.tenor plus U.S.Treasury auction noun in the documentsourceintro; wholeintro identifies one nominal tenor family. Do not map reopenings residual term (9Year10Month) onto10Year by math. The intro explicit10Year family plus retained new/reopen table is required. Wrongtenor/multipletenor intro without exactrowcolumnmapping rejects. SourceID/titleonly tenor doesnotadmit.",
+      "informative_patterns": [
+        "bid_to_cover",
+        "bid-to-cover",
+        "bid to cover"
+      ],
+      "qualifiers": [
+        "U.S.Treasury/TreasuryDirect sourceintro",
+        "auction_date completeheader",
+        "term and new/reopen completeheaders/qualifiers",
+        "bid-to-coverratio definition",
+        "offering/percent versus ratio units",
+        "wholeoriginaltable allrows/allcolumns"
+      ],
+      "accepted_context": "Historical same-tenor auctiontable, not forecast/eventlabel. Upcomingsharedschedule is contextual only unless exact wholetenor+auctiondate independently match task; unknownsize staysunknown."
+    },
+    "net_positioning_change_pct_oi_rank": {
+      "relation": "contract_specific",
+      "identity_rule": "Exact whole task.name and exact whole task.exchange appear together in one retained CFTC sourceintroduction. Require futures-only legacy/noncommercial category. No commoditysynonym/entityID/docID or marketprice-to-contractalias inference. Allroster names compared under same normalization to detectduplicate/ambiguousidentity.",
+      "informative_patterns": [
+        "noncomm_net",
+        "noncommercial",
+        "net_%OI",
+        "open_interest"
+      ],
+      "qualifiers": [
+        "CFTC reportsource and futuresonly/category",
+        "report_date and Tuesdayreport/Fridaypublication availability explanation",
+        "noncommerciallong/short/net and OIdefinitions",
+        "completeoriginaltable allrows/allcolumns"
+      ],
+      "accepted_context": "Published contract-specific positiontable. GenericCOTmechanics sharedcontext doesnot count as a contract-specific informative block."
+    },
+    "cpi_component_mom_first_print": {
+      "relation": "series_component_specific",
+      "identity_rule": "Exact whole task.series_fred in retained sourceintroduction must explicitly pair with the fulltask.name/component text, and that same exactcomponent has one uniquecompletepipeheader column. No CPIcore/headline/energy/gasoline synonymguess or generalCPImention admission. If duplicate/omitted componentheader or introcode/name mapping conflicts, refuse.",
+      "informative_patterns": [
+        "month-over-month",
+        "month over month",
+        "mom",
+        "first print",
+        "first prints"
+      ],
+      "qualifiers": [
+        "BLS/ALFREDsourceintro",
+        "SA/NSA and MoM/YoY wording",
+        "originalreference-month header/rows",
+        "frozenasof/vintage and firstprint availability wording",
+        "allcolumns retained formeaning"
+      ],
+      "accepted_context": "Historical componenttable as a fullblock. EIAgasolineprice is a differentseries; no hardcoded economicmapping added as componentownership."
+    },
+    "next_estimate_revision_direction": {
+      "relation": "series_specific",
+      "identity_rule": "Exact task.series_id==document.series_id plus wholecodesourceintro OR unambiguous exactcode+fulltask.series_name together in intro. Samecode maps to exactlyone declaredseriesname, and reference_month header exists with exacttask.ref_month in originalrowlabel; no docIDparsing or aliasofCES/PAYEMS employment. Contradictorymetadata/sourcecode refuses.",
+      "informative_patterns": [
+        "vintage table",
+        "reference_month",
+        "as_of_",
+        "revision schedule"
+      ],
+      "qualifiers": [
+        "underlyingagencysource and level/rate units",
+        "reference_month rowlabels",
+        "everyoriginalas_of_ vintageheader",
+        "first/subsequentestimate or vintage meaning",
+        "completeoriginaltable allrows/allcolumns"
+      ],
+      "accepted_context": "Published same-series vintage table includes relevantmonth, without numericdeltas or directionlabels. Sharedbenchmarkannouncement may be contextual but cannot establish ownseriesbinding."
+    },
+    "yield_change_bps_intermeeting": {
+      "relation": "maturity_specific_or_shared_macro_context",
+      "identity_rule": "Maturity-specific: exact whole task.series_fred code appears in sourceintro and a uniqueoriginalpipeheader, OR exact declared maturity string derived only from task.maturity_years (positiveinteger N->N-year) appears nextto U.S.Treasury/constantmaturity yield in same original complete sentence under retainedsourceintro. No substring DGS1->DGS10 or2year->20year. Sharedmacro: actualFederalReserve/FOMCstatement or projection sourceintro and date are retained, tasktargets are explicitlyTreasuryyields, but labelrelation shared_macro_context, never maturity-specific.",
+      "informative_patterns": [
+        "yield",
+        "constant-maturity",
+        "treasury yields",
+        "federal funds",
+        "target range",
+        "appropriate monetary policy"
+      ],
+      "qualifiers": [
+        "source/reportdate and actualasofdate",
+        "specificratecode/maturity for ownyield",
+        "percentyield versus basispointchange distinction",
+        "wholeoriginaltableheaders/rows or completepolicyparagraph",
+        "SEP variable/year/median/central-tendency/range/footnotes retained together; flattened ambiguous numericprojection refused"
+      ],
+      "accepted_context": "At leastone maturity-specific publishedyieldblock per entity establishes informativeowncoverage; sharedFedcontext coverage separately reported and never rescues missingowncoverage. No policypath-toyieldforecast features."
+    }
+  },
+  "admissible_receipt_design": {
+    "record": "Per unit/entity/eligible doc/block: exactrawhash,taskhash,manifesthash,sourcecoordinates/text hashes, explicitrelation (issuer_specific,series_specific,instrument_specific,contract_specific,maturity_specific,shared_macro_context), supportingexactidentity/qualifiers, rejectioncode. Bindingreceipt doesnot include futurelabel, pointforecast, transformednumericfeature orLMMsummary.",
+    "full_roster": "Exactly11units/78entities/10targetnames in fixedinventory. Everyentity has admittedowninformativeblocks or declaredsourcehole; sharedcontextcountseparately. Refused/missingentities remain indenominator. No selectsuccessfulticker/unit/slicing toclaimcoverage. Unknownfamilyexplicitrefusal.",
+    "ordering": "Inventoryonly; no topk quality selection. Eventualsourceaudit examinesall eligibleblockcandidates in doc_id ascending/span_start ascending afterintegrity, not likelihood/sign/financialvalue ranking. No outcome-driven candidatepruning."
+  },
+  "precode_adversarial_requirements": [
+    "WrongdocumentCIK/ticker versus rightnamecue mustrefuse; validmetadata withbodydeclaringdifferentissuer mustrefuse",
+    "Counterparty/competitorquotedfigures andtwo issuers/duplicate normalizednames mustnotbindtoownerbyfirstperson/nameoverlap",
+    "DocumentID changedtoanotherissuer whilemetadata/textright cannot alterbinding; IDencodedCIK isneverownership",
+    "Source/title onlycluewithout originalintroduction/localissuerdeclaration refuses",
+    "Absent/duplicate/swappedtableheaders orwrongseriescode/tenor/exchange refuses; DGS1notDGS10,2yearnot20year",
+    "CPIheadline/core andenergy/gasoline distinct; nodeletedlegal/parentheticalqualifiers orhardcodedfinancialalias",
+    "Missingquarter/YTD/basicdiluted/currency/vintagesourcequalifier refuses informativeblock",
+    "Sourcepostcutoff/vintagecolumn/longgap/noavailability explanation refuses; forwardannounceddate not treatedasrealizedobservation",
+    "COTexchangeorreportcategory mismatch/legacyfuturesoptionmixed refuses",
+    "SharedFOMCpolicydocument nevercountsmaturity-specific; SEPflattenedmissingyear/medianmapping refusesnumericcontext",
+    "ExactUnicode/CRLF/sourceoffsets andwholeparagraph/tablebounds; oversizedcontextrefuses ratherthantruncating",
+    "No schemaownershiplabels invented, manifest/corpusmutation, externalcompanylookup/modelnetwork/numericprediction"
+  ],
+  "coverage_decision": "No fit-forcing percentage or 59/78 inheritedfromV8. Atcurrentprotocolstage onlyfullrosterinventory bounds. Afterrootauthorizationandprecodefreeze, eventualfinite sourceaudit mustreportowninformative/shared/holes perentity/family andexactrefusals, withindependentalladmittedbundle inspection. Missingfamily/partialcoverage prevents declaringgeneralTrack4readiness; do not lowercontextrequirements or rescuebysharedmacrocoverage. Root may then decide a separatelyfrozen supportedsubset method only with unsupportedexactV2fallback andfullroster evaluation, not retrospectively relabelV9 a success. No House stage authorizedhere.",
+  "workflow": [
+    "Root+independentreview this protocol/inventory; sourceonly amendments preservepredecessor andexplicitdiff before anybinder/control",
+    "No implementation in this folderuntilseparate rootauthorization. Then freeze binder/fixtures/qualifierpredicates/inputs beforemechanicalcontrols; freezeallactualcontextreceipts/fullsourcefragments forindependentreconstruction",
+    "Adversarialrefusalcontrols beforeall11/78 sourceaudit; no House/predictions/outcomelabels",
+    "Independentlyaudit savedadmittedcontexts/holes acrossallfamilies, no binder tuningoncoverage",
+    "Only a subsequentseparate protocol may decide promptprojection/genuine matched financialquality; no automated submission"
+  ],
+  "current_state": {
+    "candidate_binder_implemented": false,
+    "sourcebinding_controls": 0,
+    "sourcebinder_runs": 0,
+    "forecasts": 0,
+    "house_calls": 0,
+    "official_submission": false
+  },
+  "v7_protocol_sha256": "e6a6057eca9a457d34b37cd471c228a8f58639cedb00d7e4d1be0bdc7c5648ff",
+  "v8_protocol_sha256": "08d5b10f72f4cf23ce8155bf4b819bb4bacff45c1cb72c22de5a869f152f7e43"
+}

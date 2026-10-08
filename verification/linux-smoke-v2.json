@@ -1,0 +1,58 @@
+{
+  "phase": "EXISTING_PUBLISHED_V2_SYNTHETIC_LINUX_SANDBOX",
+  "image": {
+    "image": "ghcr.io/kouzhizhuo/agenthon-t4@sha256:5e7c3c40d8af3bdb716b0b0225befeca6cd4dc24e48630b588c74636ce4573c6",
+    "digest_verified": true,
+    "complete_pull_succeeded": true,
+    "registry_login_in_workflow": false,
+    "status": "Downloaded newer image"
+  },
+  "t4": {
+    "authenticated_synthetic_house_calls": 11,
+    "fixtures": [
+      {
+        "fixture": "regression",
+        "entities": 30,
+        "interval_level": 0.8,
+        "authenticated_requests": 9,
+        "repair_used": true,
+        "quotes_exact": true,
+        "task_order_exact": true
+      },
+      {
+        "fixture": "classification",
+        "entities": 5,
+        "interval_level": 0.95,
+        "authenticated_requests": 2,
+        "repair_used": false,
+        "quotes_exact": true,
+        "task_order_exact": true
+      }
+    ],
+    "each_invocation_requests_at_most_25": true,
+    "exact_declared_labels_verified": true,
+    "exact_requested_interval_levels_verified": true,
+    "real_injected_bearer_verified": true,
+    "output_token_cap_at_most_4000": true,
+    "live_house_quality": "NOT_RUN"
+  },
+  "sandbox": {
+    "network": "none",
+    "read_only_root": true,
+    "uid": 65534,
+    "gid": 65534,
+    "cpus": 4,
+    "memory_limit": "4g",
+    "pids_limit": 256,
+    "nofile_limit": "1024:1024",
+    "tmpfs": "/tmp:rw,noexec,nosuid,size=64m",
+    "capabilities": "ALL dropped",
+    "no_new_privileges": true,
+    "input_mount": "read-only",
+    "output_mount": "read-write"
+  },
+  "workflow_url": "https://github.com/kouzhizhuo/agenthon-t1/actions/runs/37733332906",
+  "workflow_conclusion": "success",
+  "raw_log_sha256": "2591b91c17998ea8036b08b9b265f6065b306a4bd7eb0a922dfe8480596fd489",
+  "scope": "Track4-only extraction of existing sharedrunnerreceipt. AuthenticatedsyntheticHouse11calls; no live financialquality. Othertrackpayloads excluded."
+}

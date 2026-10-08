@@ -1,0 +1,26 @@
+{
+  "state": "SOURCE_ONLY_INVENTORY_VERIFIED_BINDER_NOT_AUTHORIZED",
+  "candidate_binder_implemented": false,
+  "sourcebinder_runs": 0,
+  "control_runs": 0,
+  "forecasts": 0,
+  "house_calls": 0,
+  "submission": false,
+  "sourceinventory": {
+    "units": 11,
+    "entities": 78,
+    "documents": 69,
+    "optional_exact_metadata_clue_entities": 38,
+    "safeinformative_lowerbound": 0,
+    "trivialupperbound": 78
+  },
+  "v7_v8_sources_unchanged": true,
+  "independent_review": "INDEPENDENT_PRECODE_REVIEW_TRACK3.md",
+  "inventory_checks": "11units78entities69docs30pipefirstlines38clues hash/metadata exact",
+  "pending_before_any_binder": [
+    "Structuralfinancialtable header+actualrow grammar; inline/navigationpipes refused",
+    "Sourceintro completeboundary and localregistrant/conflictspan predicates",
+    "Family period/unit/basis/availability conditional predicates",
+    "Wholecode Unicodeboundaries and exactcontextpackingbytes"
+  ]
+}

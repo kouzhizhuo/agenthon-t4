@@ -1,0 +1,97 @@
+{
+  "scope": "Compact fixed research decisions, no rawcase/targetsets. All original trees and failures preserved inworkspace.",
+  "decisions": {
+    "v5": "Rejected: rankrho .0378066->.0320346 (gain-.005772), despite10.46%MAEimprovement;21reserveorigins/3years below45/4yeargate.",
+    "v6": "Rejected before numerical implementation: strictmetadata cadence/history produced0eligibledev/reserveorigins. Nofinancialvalueconversion/candidate.",
+    "v7": "Protocolonly HOLD: scheduler completion-first/transactionalparent hypothesis. UniversalBboundnotestablished becausev4preservesextralongints/reasonkeys; independentreview requires explicitadmissioncapclarification. Noimplementation.",
+    "v8": "Rejectedprecode: all69actualchecksummanifestentries lackentity_ids/shared so pinnedscopeexactfallbacks78/78 and0transformedcoverage. Noimplementation.",
+    "v9": "Protocol+inventorybounds only independentlyverified:11units/78entities/69docs/30pipefirstlines,38optionalmetadataclues, safelower0/upper78. Binder NOTauthorized; require executabletable/sourceintro/localowner/qualifier/packingpredicates beforecontrols. No model."
+  },
+  "method_limit": "Syntheticclients establish mechanics only. Singlemechanism experiments, fixedrosters, preservedfailures, independentlyreviewed savedreceipts and noautomaticupload.",
+  "workspace_receipt_hashes": [
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/completion_manifest.json",
+      "sha256": "b2e9bec1d2d20958e8187490426760f75a337c6c3c6f35b6919df119d9ab279e",
+      "bytes": 16360,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/independent_results_track3_receipt.json",
+      "sha256": "3ae0c5ee408e395643fdaf42325fdeb1486efc73db5635d1ca6c8ed92c64593a",
+      "bytes": 3899,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/METADATA_COMPLETION_MANIFEST.json",
+      "sha256": "45bba3eb35109c3a50ec2eae8718169c50a924bcadd1ef4d19f2cb71aebbc272",
+      "bytes": 5991,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/independent_metadata_track3_receipt.json",
+      "sha256": "77787be4063647160422f0bf8d871170826656a256bc416d12090a7ab3ed23d6",
+      "bytes": 1021,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/official_regression_diagnosis/SAVED_REPLAY_RECEIPT.json",
+      "sha256": "91ab35bbae72519244bd88c82a908850af1044d9666773776bd55bc455dfe45e",
+      "bytes": 2650,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/official_regression_diagnosis/INDEPENDENT_SAVED_REPLAY_TRACK3.json",
+      "sha256": "c50246fe434045ae7157de09cbd09255ed93713f7684d5dd45ad7a32d1df59ea",
+      "bytes": 2366,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/PRECODE_PROTOCOL_RECEIPT.json",
+      "sha256": "b5fec1acb831b3e1ef64863f7ef5c41499559575d07a01e091d3b51dddb0da6c",
+      "bytes": 516,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/independent_amendment_track3_receipt.json",
+      "sha256": "0c8f04c610c8f39f3a1ae6b288896b7de9eefb04a6a36879ce9797e38fc53555",
+      "bytes": 4564,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/PRECODE_REJECTION_MANIFEST.json",
+      "sha256": "32c73436f8b6b8382c8e09fe988af7b5266a57dd0fb8c6dc64cf3b2c14da3bd6",
+      "bytes": 2685,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/independent_precode_track3_receipt.json",
+      "sha256": "85d29344d1ad57564a29163dcb3dfbcd61cce74c2637210088cee3463e6f2917",
+      "bytes": 41932,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/SOURCE_INVENTORY_BOUNDS.json",
+      "sha256": "8c8a77ebd1aaf8294ad5daa781c4a174703101fbcb3eeaadb1be7e9bfe49dffc",
+      "bytes": 583390,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/PRECODE_PROTOCOL_RECEIPT.json",
+      "sha256": "6860baf41483c316573a64f4528108a38f4500e12955281d119511a488f855f2",
+      "bytes": 1642,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/independent_precode_track3_receipt.json",
+      "sha256": "32690c637072f737c69b14e914dc9e3a49f290b579783aae6ec413d58673a2fe",
+      "bytes": 1299,
+      "exported": false
+    },
+    {
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/PROTOCOL_INVENTORY_COMPLETION.json",
+      "sha256": "dbf65df63fe170e6ea04d587dc6710b92dfc3c2c1c5a144d9ed62d6f81bce626",
+      "bytes": 1742,
+      "exported": false
+    }
+  ]
+}

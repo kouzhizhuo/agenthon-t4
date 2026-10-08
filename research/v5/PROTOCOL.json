@@ -1,0 +1,102 @@
+{
+  "created": "2026-10-08",
+  "state": "PRE_ACCURACY_PROTOCOL",
+  "objective": "Measure one pooled cross-entity positioning signal and a matched House reading-layer ablation before scarce official submissions.",
+  "frozen_parent": "t4/research1008v4/source_manifest.json",
+  "frozen_parent_sha256": "8f765a254a0bea64207afaa073480eb9780cbb328e3a2d90ed0eceb4a4825915",
+  "numeric_arms": [
+    "v4_rank_policy",
+    "pooled_resolved_ridge_25pct"
+  ],
+  "numeric_mechanism": "Common small-sample ridge on three cross-sectionally centered positioning proxies in percentage-point units: horizon net momentum divided by current originOI; six-week mean of each weekly net change divided by its own preceding weeklyOI, times horizon; .35 times difference between thirteen-week mean net/OI shares and current net/OI share. The last two are proxies rather than exact horizon-origin-OI changes. Training targets divide future net change by initial originOI. Training pairs use only fully resolved nonoverlapping horizons inside visible input. Share generic coefficients across markets; fixed25% learned point plus75% exact parent point. No official outcome memory.",
+  "constants": {
+    "horizon_weeks": 5,
+    "maximum_visible_reports": 260,
+    "minimum_visible_reports": 60,
+    "minimum_markets": 3,
+    "minimum_nonoverlapping_training_origins": 8,
+    "ridge_equivalent_rows": 25,
+    "pooled_point_weight": 0.25,
+    "feature_names": [
+      "momentum",
+      "mean6",
+      "reversion"
+    ],
+    "interval_policy": "Preserve parent bounds expanded only to contain final point; evaluate point shift and interval loss separately. No fitted coverage claim."
+  },
+  "external_benchmark": {
+    "source": "CFTC legacy futures-only historical compressed annual reports",
+    "years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "excluded_years": [
+      2024,
+      2025,
+      2026
+    ],
+    "development_period": [
+      "2015-01-01",
+      "2018-12-31"
+    ],
+    "reserved_period": [
+      "2019-01-01",
+      "2023-12-31"
+    ],
+    "origins": "Every fifth shared Tuesday report from fixed first eligible report at or after period start; target exactly five subsequent weekly reports, continuous 7-day cadence. Availability is a conservative Tuesday+3days Friday assumption without exceptional holiday/release-delay metadata; reject non-Tuesday records and disclose this retrospective limitation. No imputed missing report or bridged gap.",
+    "markets": [
+      "CORN_CBT",
+      "ES_SP500",
+      "EURO_FX",
+      "GOLD_CMX",
+      "JPY_CME",
+      "NATGAS_NYMEX",
+      "SILVER_CMX",
+      "UST_10Y",
+      "UST_2Y",
+      "WTI_NYMEX"
+    ],
+    "asset_selection": "Resolve exact stable CFTC market codes using source metadata before outcome scoring; record absent or changed contracts. No selecting contracts by successful scores.",
+    "input_contract": "Report date, immutable market identifier, noncommercial long, noncommercial short, total open interest. Net is long minus short. Futures-only, all contract months.",
+    "training_visibility": "At each origin, evaluator passes only older released rows to candidate. Candidate cannot open benchmark labels or fetch external resources.",
+    "label_contract": "Evaluator-only future net change divided by initial origin open interest times100; point target is percent of origin open interest. Separate inputs and labels outside organizer tree.",
+    "exposure": "Historical contracts outside published2024 interval and originally unseen during candidate design; same market families so asset-generalization is not claimed. Development data consumed after run; reserved external outcomes read only after code and protocol freeze. A retrospective dataset is not the hidden contest distribution. Broad model historical knowledge remains a House evaluation limit."
+  },
+  "metrics": {
+    "primary": "Equal-origin cross-sectional Spearman rho and Kendall tau, plus public anchored ranking scorer when valid naive bundle is available. No reconstructed official rank.",
+    "secondary": [
+      "MAE_pct_OI",
+      "90pct_interval_score",
+      "coverage",
+      "width",
+      "harmful_point_shift_fraction",
+      "fallback_fraction"
+    ],
+    "uncertainty": "Paired bootstrap by full calendar year, preserve complete cross-sections; report finite small-cluster limits and all years. No iid entity/bootstrap claims.",
+    "admission": "Predeclare material rho improvement0.03 with paired year-cluster lower95%bound above0, no full-year rho regression exceeding0.05, no MAE or interval-score regression above5%; otherwise preserve parent. At least four reserved years and45 scored cross-section origins required."
+  },
+  "house_ablation": {
+    "arms": [
+      "v3_guarded_exact_evidence",
+      "v4_typed_financial_features"
+    ],
+    "third_case_memory_arm": "Not admitted until independently labeled successful procedural cases exist; current generic fictional cards are held fixed.",
+    "matched": "Same frozen task/corpus, House model alias+pin, seed, temperature0, same parent controller/batch4/reviewer/requestcap25 and bounded context. Exact v4 issuer guard used in both arms. Only typed feature context differs.",
+    "labels": "Need independent point-in-time EPS/credit cases; public eleven units carry no resolved targets. Public-unit model run can measure extraction/revision/latency but cannot establish forecast quality.",
+    "status": "NOT_RUN_NO_LOCAL_HOUSE_OR_PRODUCTION_NLI_CONFIGURATION",
+    "classification_accuracy_requirement": "Avoid resolving published practice targets from historical memory; use separately declared noncompetition cases with evaluator-only labels."
+  },
+  "resources": "Existing local Python/numpy/pandas/scipy; candidate signal standard library only. No personal remote compute, model installation, inference internet, image publication or official submission.",
+  "publication_or_submission": false,
+  "immutability": "Preserve organizer units/corpora/manifests and all v4 source files. New research only in this folder. Freeze protocol and candidate hashes before reserved accuracy."
+}

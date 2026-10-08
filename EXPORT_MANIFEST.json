@@ -1,0 +1,374 @@
+{
+  "phase": "CLEAN_LOCAL_EXPORT_READY_FOR_ROOT_REVIEW_NO_GIT_OR_NETWORK",
+  "track": 4,
+  "best_runtime": "exactsubmittedV2",
+  "runtime_source_sha256": {
+    "analyze.py": "24f50b7ecd20257d48e709a4e554848cefac6819d8b63fa7aa5b6552637b656e",
+    "house_analyze.py": "f9c544ee2a707ca7778f9b838855afb5037eca4f8e3103c84cec42cbdbeaac9d"
+  },
+  "entries": [
+    {
+      "export_path": "runtime/analyze.py",
+      "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/source/analyze.py",
+      "source_sha256": "24f50b7ecd20257d48e709a4e554848cefac6819d8b63fa7aa5b6552637b656e",
+      "export_sha256": "24f50b7ecd20257d48e709a4e554848cefac6819d8b63fa7aa5b6552637b656e",
+      "bytes": 22867,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "runtime/house_analyze.py",
+      "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/source/house_analyze.py",
+      "source_sha256": "f9c544ee2a707ca7778f9b838855afb5037eca4f8e3103c84cec42cbdbeaac9d",
+      "export_sha256": "f9c544ee2a707ca7778f9b838855afb5037eca4f8e3103c84cec42cbdbeaac9d",
+      "bytes": 18259,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "requirements-validation.txt",
+      "source_path": "/Volumes/Alan/Nips_com/t4/requirements.txt",
+      "source_sha256": "7ec88226424a2ba717391751c15fd7ad9b59db1baba08505b45fefddeb230d2e",
+      "export_sha256": "7ec88226424a2ba717391751c15fd7ad9b59db1baba08505b45fefddeb230d2e",
+      "bytes": 131,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "LICENSE",
+      "source_path": "/Volumes/Alan/Nips_com/Agenthon-2026/04_track4_explainability/LICENSE",
+      "source_sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1",
+      "export_sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1",
+      "bytes": 1036,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "THIRD-PARTY-NOTICES.md",
+      "source_path": null,
+      "derived_from": [
+        {
+          "source_path": "/Volumes/Alan/Nips_com/Agenthon-2026/04_track4_explainability/THIRD-PARTY-NOTICES.md",
+          "source_sha256": "0b9da7218c156de5ff466609d1281609e813155f53a5d1b5a81347306d777e54"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/requirements.txt",
+          "source_sha256": "7ec88226424a2ba717391751c15fd7ad9b59db1baba08505b45fefddeb230d2e"
+        }
+      ],
+      "export_sha256": "da37aa635f0e54a82c9fd09fddbc649c6afb38b88948a317c6ec18f37cee8ba5",
+      "bytes": 1262,
+      "mode": "authored_summary"
+    },
+    {
+      "export_path": "Dockerfile",
+      "source_path": null,
+      "derived_from": [
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008/Dockerfile",
+          "source_sha256": "6e6be6a5bacb30b923df3b333b582d7986bb5bf1f1f38e363505889e0f989686"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/image.config.json",
+          "source_sha256": "f54845a45a2b2a9e8abfda11078080c8b57cbc51893f156b5ed78b9ac56a5f74"
+        }
+      ],
+      "export_sha256": "db5b2c73a805dde3d12176846f7e5554c2bf1cace42f077784b5a505bfb6ff10",
+      "bytes": 461,
+      "mode": "authored_summary"
+    },
+    {
+      "export_path": ".gitignore",
+      "source_path": null,
+      "derived_from": [],
+      "export_sha256": "dadb666d65051a256f7d75131f602ca650b8a4c27ae7ec3827ebb0306aed2924",
+      "bytes": 155,
+      "mode": "authored_summary"
+    },
+    {
+      "export_path": "research/v5/PROTOCOL.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/PROTOCOL.json",
+      "source_sha256": "0e902d5a51627b957181cde43d66146fa72249c2724ae7c3df1c5880a9c9e91e",
+      "export_sha256": "0e902d5a51627b957181cde43d66146fa72249c2724ae7c3df1c5880a9c9e91e",
+      "bytes": 6202,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v5/STATUS.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/STATUS.json",
+      "source_sha256": "2f560da2318bcde4208aabe568b4a743fe74bb2128d1f508b4c3abfc2f13e709",
+      "export_sha256": "2f560da2318bcde4208aabe568b4a743fe74bb2128d1f508b4c3abfc2f13e709",
+      "bytes": 1997,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v5/README.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/README.md",
+      "source_sha256": "1b7c857aac860de3026f8579ed219dd0a78909c28e166ece2252fad168de45ad",
+      "export_sha256": "1b7c857aac860de3026f8579ed219dd0a78909c28e166ece2252fad168de45ad",
+      "bytes": 2197,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v6/PROTOCOL.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/PROTOCOL.json",
+      "source_sha256": "1caccf6d846385570aba5c95684ee1d9c3a696c1d0a21c98143734c42c18f9ee",
+      "export_sha256": "1caccf6d846385570aba5c95684ee1d9c3a696c1d0a21c98143734c42c18f9ee",
+      "bytes": 12618,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v6/STATUS.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/STATUS.json",
+      "source_sha256": "e609d5615e1433e649cdc8c6697321cf4f89f218643d0d41d946d0f923b27590",
+      "export_sha256": "e609d5615e1433e649cdc8c6697321cf4f89f218643d0d41d946d0f923b27590",
+      "bytes": 1405,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v6/README.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/README.md",
+      "source_sha256": "d512bd825657ac6bc2689e94670d238bb0b7c390f6ee0fb73da7995e59acff99",
+      "export_sha256": "d512bd825657ac6bc2689e94670d238bb0b7c390f6ee0fb73da7995e59acff99",
+      "bytes": 2352,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v7/PROTOCOL.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/PROTOCOL.json",
+      "source_sha256": "e6a6057eca9a457d34b37cd471c228a8f58639cedb00d7e4d1be0bdc7c5648ff",
+      "export_sha256": "e6a6057eca9a457d34b37cd471c228a8f58639cedb00d7e4d1be0bdc7c5648ff",
+      "bytes": 10873,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v7/STATUS.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/STATUS.json",
+      "source_sha256": "edc0445ea52c0bd537c95f8b90b212c585358b61822e0a09db9622afbef5aa66",
+      "export_sha256": "edc0445ea52c0bd537c95f8b90b212c585358b61822e0a09db9622afbef5aa66",
+      "bytes": 324,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v7/README.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/README.md",
+      "source_sha256": "49be4ef22ff724454890b2c788c6810e508bdc2d1c8ba96f93d966e83415802f",
+      "export_sha256": "49be4ef22ff724454890b2c788c6810e508bdc2d1c8ba96f93d966e83415802f",
+      "bytes": 795,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/PROTOCOL.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/PROTOCOL.json",
+      "source_sha256": "08d5b10f72f4cf23ce8155bf4b819bb4bacff45c1cb72c22de5a869f152f7e43",
+      "export_sha256": "08d5b10f72f4cf23ce8155bf4b819bb4bacff45c1cb72c22de5a869f152f7e43",
+      "bytes": 22422,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/STATUS.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/STATUS.json",
+      "source_sha256": "73f954eb31fa7419a83e1a73873d6e4b5059da9b93365e49639f8aeec2660144",
+      "export_sha256": "73f954eb31fa7419a83e1a73873d6e4b5059da9b93365e49639f8aeec2660144",
+      "bytes": 881,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v8/README.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/README.md",
+      "source_sha256": "55d99cf6546802380c2d5a4c292e55455f5a3b1e9449e14ed3b90a55bd827f65",
+      "export_sha256": "55d99cf6546802380c2d5a4c292e55455f5a3b1e9449e14ed3b90a55bd827f65",
+      "bytes": 1306,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v9/PROTOCOL.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/PROTOCOL.json",
+      "source_sha256": "291a90ed871f12e1c8ce0b5b4e950581b1704a57795877fb6f33ab8f660d3e2d",
+      "export_sha256": "291a90ed871f12e1c8ce0b5b4e950581b1704a57795877fb6f33ab8f660d3e2d",
+      "bytes": 22430,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v9/STATUS.json",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/STATUS.json",
+      "source_sha256": "e9cd7af57409690c7f7f89bc097f688fe626c301f4c7a1d042f247abd3a3380d",
+      "export_sha256": "e9cd7af57409690c7f7f89bc097f688fe626c301f4c7a1d042f247abd3a3380d",
+      "bytes": 948,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v9/README.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/README.md",
+      "source_sha256": "898ac34b24384c7ce9c54434676cd0b3243c1f99319062f6c2e5a79494bf716c",
+      "export_sha256": "898ac34b24384c7ce9c54434676cd0b3243c1f99319062f6c2e5a79494bf716c",
+      "bytes": 1947,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v5/REPORT.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/REPORT.md",
+      "source_sha256": "0b34997819ac5580b0208365f990e32704a12d553b8c791148c315a3dd58091d",
+      "export_sha256": "0b34997819ac5580b0208365f990e32704a12d553b8c791148c315a3dd58091d",
+      "bytes": 5621,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/v6/REPORT.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/REPORT.md",
+      "source_sha256": "c236d409c3537c510771189ca9b6701a0770aa2aa3310484c28ce83766dd79e0",
+      "export_sha256": "c236d409c3537c510771189ca9b6701a0770aa2aa3310484c28ce83766dd79e0",
+      "bytes": 2893,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/official-regression/REPORT.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/official_regression_diagnosis/REPORT.md",
+      "source_sha256": "be61767fc4a7583fffde45f6b10a52e40afe43cb798316df2fec2c5bb6a600f5",
+      "export_sha256": "be61767fc4a7583fffde45f6b10a52e40afe43cb798316df2fec2c5bb6a600f5",
+      "bytes": 6648,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "research/source-contract/REPORT.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/source_contract_diagnosis/REPORT.md",
+      "source_sha256": "1bee310e801e8d175aa5ebaffc03674f22a13b1ec88dc9136d719f30c9a02cc5",
+      "export_sha256": "1bee310e801e8d175aa5ebaffc03674f22a13b1ec88dc9136d719f30c9a02cc5",
+      "bytes": 3102,
+      "mode": "exact_copy"
+    },
+    {
+      "export_path": "verification/linux-smoke-v2.json",
+      "source_path": null,
+      "derived_from": [
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/linux_smoke.json",
+          "source_sha256": "8bacb93ae7202dfc4c66131f3307291a125458955e811d3d1f36852481c40b0c"
+        }
+      ],
+      "export_sha256": "90c3b29133203c855915ed647e8e5f9d2bbf6d4ab977bd50ff1f00ddbd741f17",
+      "bytes": 1929,
+      "mode": "authored_track4_only_extraction"
+    },
+    {
+      "export_path": "results/official-feedback.json",
+      "source_path": null,
+      "derived_from": [
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/official_feedback.json",
+          "source_sha256": "587eae9e99e5211fa128c32929322bd857fa75c2e907c110ccddf3d8ee2b51b9"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v4/official_feedback_receipt.json",
+          "source_sha256": "2ac981e62042162684cb4b366db7c05076930657347790c0a99c1f624aca1fb9"
+        }
+      ],
+      "export_sha256": "98b9aa00bc30bda49001e3b996be761580e7a99206106f2fd653a31ce3cde7ab",
+      "bytes": 681,
+      "mode": "authored_summary"
+    },
+    {
+      "export_path": "research/DECISIONS.json",
+      "source_path": null,
+      "derived_from": [
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/completion_manifest.json",
+          "source_sha256": "b2e9bec1d2d20958e8187490426760f75a337c6c3c6f35b6919df119d9ab279e"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v5/independent_results_track3_receipt.json",
+          "source_sha256": "3ae0c5ee408e395643fdaf42325fdeb1486efc73db5635d1ca6c8ed92c64593a"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/METADATA_COMPLETION_MANIFEST.json",
+          "source_sha256": "45bba3eb35109c3a50ec2eae8718169c50a924bcadd1ef4d19f2cb71aebbc272"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/independent_metadata_track3_receipt.json",
+          "source_sha256": "77787be4063647160422f0bf8d871170826656a256bc416d12090a7ab3ed23d6"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/official_regression_diagnosis/SAVED_REPLAY_RECEIPT.json",
+          "source_sha256": "91ab35bbae72519244bd88c82a908850af1044d9666773776bd55bc455dfe45e"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v6/official_regression_diagnosis/INDEPENDENT_SAVED_REPLAY_TRACK3.json",
+          "source_sha256": "c50246fe434045ae7157de09cbd09255ed93713f7684d5dd45ad7a32d1df59ea"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/PRECODE_PROTOCOL_RECEIPT.json",
+          "source_sha256": "b5fec1acb831b3e1ef64863f7ef5c41499559575d07a01e091d3b51dddb0da6c"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v7/independent_amendment_track3_receipt.json",
+          "source_sha256": "0c8f04c610c8f39f3a1ae6b288896b7de9eefb04a6a36879ce9797e38fc53555"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/PRECODE_REJECTION_MANIFEST.json",
+          "source_sha256": "32c73436f8b6b8382c8e09fe988af7b5266a57dd0fb8c6dc64cf3b2c14da3bd6"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/independent_precode_track3_receipt.json",
+          "source_sha256": "85d29344d1ad57564a29163dcb3dfbcd61cce74c2637210088cee3463e6f2917"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/SOURCE_INVENTORY_BOUNDS.json",
+          "source_sha256": "8c8a77ebd1aaf8294ad5daa781c4a174703101fbcb3eeaadb1be7e9bfe49dffc"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/PRECODE_PROTOCOL_RECEIPT.json",
+          "source_sha256": "6860baf41483c316573a64f4528108a38f4500e12955281d119511a488f855f2"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/independent_precode_track3_receipt.json",
+          "source_sha256": "32690c637072f737c69b14e914dc9e3a49f290b579783aae6ec413d58673a2fe"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/PROTOCOL_INVENTORY_COMPLETION.json",
+          "source_sha256": "dbf65df63fe170e6ea04d587dc6710b92dfc3c2c1c5a144d9ed62d6f81bce626"
+        }
+      ],
+      "export_sha256": "916d4a816fbcf0b21e067cdfa20924739b951a1ec55071f83fbfe227b050ffdf",
+      "bytes": 4796,
+      "mode": "authored_summary"
+    },
+    {
+      "export_path": "README.md",
+      "source_path": null,
+      "derived_from": [
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/README.md",
+          "source_sha256": "c1c2bf5c278e15cafba6b3f2f360f2d67c142d7bdf2224f1cdf82b2994588ffa"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v2/official_feedback.json",
+          "source_sha256": "587eae9e99e5211fa128c32929322bd857fa75c2e907c110ccddf3d8ee2b51b9"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/submission1008v4/official_feedback_receipt.json",
+          "source_sha256": "2ac981e62042162684cb4b366db7c05076930657347790c0a99c1f624aca1fb9"
+        },
+        {
+          "source_path": "/Volumes/Alan/Nips_com/t4/research1008v8/source_contract_diagnosis/REPORT.md",
+          "source_sha256": "1bee310e801e8d175aa5ebaffc03674f22a13b1ec88dc9136d719f30c9a02cc5"
+        }
+      ],
+      "export_sha256": "d1fef9d40a3989487b7b41756e0a57268392ff33ff134cc30f2d0dd962056d3b",
+      "bytes": 2582,
+      "mode": "authored_summary"
+    },
+    {
+      "export_path": "research/v9/INDEPENDENT_PRECODE_REVIEW_TRACK3.md",
+      "source_path": "/Volumes/Alan/Nips_com/t4/research1008v9/INDEPENDENT_PRECODE_REVIEW_TRACK3.md",
+      "source_sha256": "e66136406a6f6321281d4d5b9a41ff64f086e2e80fab08b91716160b4b37e05c",
+      "export_sha256": "e66136406a6f6321281d4d5b9a41ff64f086e2e80fab08b91716160b4b37e05c",
+      "bytes": 7313,
+      "mode": "exact_copy"
+    }
+  ],
+  "file_count_without_manifest": 31,
+  "total_bytes_without_manifest": 168433,
+  "rawcorpus_targets_credentials_ociblobs_othertracks_exported": false,
+  "git_initialized": false,
+  "network_calls": 0,
+  "syntax_verification": "Both exactruntimePythonfiles compiled fromstrings withoutimports/pyc/modelcalls",
+  "original_trees_mutated": false,
+  "preexport_review_fix": "Original local linux_smoke receipt combines tracks. Exportwas narrowedtoTrack4-only facts before rootreview, preserving initialmanifest outsideexport. No runtimesource/data changed.",
+  "v9_independent_sourceonly_inventory_review_included": true
+}

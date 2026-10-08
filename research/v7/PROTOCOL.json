@@ -1,0 +1,77 @@
+{
+  "version": "t4-completion-first-scheduler-v7",
+  "phase": "PROTOCOL_ONLY_NO_IMPLEMENTATION_OR_OUTCOMES",
+  "authorization": "Root requested protocol only after officialv4 regression and exact representative prompt replay. No candidate code or automatic upload.",
+  "hypothesis": "Completing the entire verified parent roster before elective review can preserve useful predictions when larger repeated context and late/slow calls would make the current interleaved scheduler fail.",
+  "baseline": "Exact frozen t4/submission1008v4/source, official0.1222; compare scheduler behavior only. Best submitted incumbent remainsv2 official0.3462.",
+  "one_change": "Two-phase House scheduling and transactional parent preservation: all initial forecast batches and structural repair attempts finish before any independent review. Keep every parent batch and its citations; once all are complete publish a complete parent answer. Elective review spends only verified remaining request/time headroom and a failed review leaves that parent's batch exact.",
+  "unchanged": [
+    "Batch size4",
+    "All complete initial/review prompt content, ordering and serialization",
+    "All evidence retrieval, issuer/period/type guards, typed feature/citation compiler",
+    "Numerical priors, ranking policy and memory cards",
+    "Task/label validation and revision-basis rules",
+    "House model/seed/temperature0/maxoutput4000",
+    "Output/reason/claim contracts and selection"
+  ],
+  "time_contract": {
+    "organizer_unit_deadline_sec": 600,
+    "clock_scope": "Set ENTRY_STARTED=time.monotonic() immediately after importingstdlibtime at the top of house_analyze.py, before otherimports. main/run use that start by default and accept an explicit trusted absolute monotonicdeadline only from controller argument (not task/corpus/model fields). Unitdeadline=ENTRY_STARTED+600 unless trustedshorterdeadline supplied; never extend600. Imports,input/context,HouseI/O,reason/write included. Syntheticclock tests pass explicitentry_started/deadline; no new clock at phase/batch.",
+    "first_phase_budget_sec": 530,
+    "derivation": "Parentdeadline=unitdeadline-60-R_save. At default600 andR_save10 this yields530, matchingv2envelope. The60seconds is a reserved reviewopportunity only, not a second deduction atreviewphase. Reviews may consume any realremainingtimeaftercompleteparent publication up to unitdeadline-R_save with percallcap60 andminimum10; ifparentfinishesearly moretimeisavailable, ifparentfinisheslate reviewsarefewer/none. No calibration from hiddenresults ordelaycases.",
+    "publication_reserve_formula": "Beforefirstcall construct and serialize with exactv4ensure_ascii=False,allow_nan=False,indent2 a pessimisticfull-answer boundtemplate using exacttask_id/schema_version/target_type, exactentityIDs, allknownclaimdocIDs/spanoffsets and claimtext, exactexisting fixedtrace/notes plus maximum25requestcount. Perentity numeric fields use64ASCIIbytes placeholder each; classificationlabel useslongestdeclaredlabel measuredJSONbytes; every claimlist usesactualcandidateclaims generatedfromfixedcontext beforeHouse. Maximum3reasonobjects useexactlongestscopeentityID andallpermittedcitationIDs/offsets (atmost2perreason), exactr1..r3IDs, plus3reasonfields each600NULcharacters (600*6escapedbytes=3600bytes perfield, conservative versus1500aggregatevalidreasonbytes). Include existingcaps6500reason/46500evidence independently as an additional100000byte slack toboundmetadata/reasonselection, and4096bytesfixednotes/slack. B = exactboundtemplate UTF8bytes +100000+4096, usinglargestcitation/docID combinations whenreasonselectionunknown. JSONstringIDs measuredactualescaping; numericplaceholder64 dominatesbinary64finitejsonrepr. ReserveR_save=max(10,8+2*B/MiB). Treatnonfinite orB>32MiB as explicitinfeasibleboundfailure beforeHouse ratherthan shrink/omitroster. RecordB/R_save, boundcomponents, actualfullanswerbytes andconstruction/writeelapsed; anyactualbytes>B rejectsbound before publish. This fixedbound is mechanicallytested withlongUnicode/controlcharacterIDs/labels/claims andallreasoncaps; never substituteprojectedMAX_ANSWER_BYTES3000 forfullanswer.",
+    "parent_request_timeout": "At each parent attempt, remaining=parent_deadline-now. timeout=min(90,remaining/number_of_remaining_parent_batches), without v4's factor2 or review consumption. Requests are admitted only with remaining positive and enough request slots for one initial request per remaining batch plus the present request; two physical attempts per batch maximum. A failed initial attempt does not entitle an unlimited retry or renew the deadline.",
+    "meaningful_first_request": "Idealzerooverhead30entity/eightbatchfirsttimeout=(600-60-10)/8=66.25seconds vsv4 28.125. Actualpreprocessing and R_save>10 subtractfromremainingbeforedividing. Recordbothideal andactual; no forced90 orreneweddeadline.",
+    "review_admission": "Only after the full parent answer has been written and validated. At each optional review require physical headroom and remaining unit time>R_save+minimum useful review allocation. Fixed useful review allocation10seconds is an admission floor, not an accuracy claim. Timeout=min(60,(unit_deadline-now-R_save)/remaining_review_batches). No review begins if that cap<10. Never spend saved parent/output reserve, and no repair attempt is added for elective review failure.",
+    "socket_limit": "Existing urllib timeout is a socket-operation bound, not proof of whole response walltime. Clock is rechecked before every request and immediately afterward; late review output cannot replace the saved full parent after deadline. Whole-response hard-deadline enforcement would be a distinct later runtime mechanism, not silently added here.",
+    "deadline_source_receipt": "DEADLINE_SOURCE_RECEIPT.json; exact public11card [agent]timeout_sec600.0. Trusted hiddenruntime deadline must be respected if different.",
+    "late_parent_policy": "Immediately after everyresponse recheckunitdeadline-R_save. A validcurrentparent returned afterparentdeadline maystillbe retained/published if now<unitdeadline-R_save; no furtherparentrequests startafterparentdeadline. Ifthatlatebatch completesfullroster, publishcompleteparentandskipreviews unlessheadroomgatespass. Ifrosterstillincomplete, stopwithoutinventingrows, keepingprivateverifiedbatchreceipts. Responses arrivingafterunitdeadline-R_save are notadmittedfornewpublication; preserve anyalreadycompletepublishedanswer and stop."
+  },
+  "request_contract": {
+    "physical_hardcap": 25,
+    "no_retries_outside_count": true,
+    "parent_attempts_perbatch_max": 2,
+    "review_attempts_perbatch_max": 1,
+    "parent_reservation": "Before retrying a failed current parent, reserve one physical initial request for each later uncompleted parent batch; if impossible, stop with explicit full-roster failure. A complete parent is never discarded by an elective child.",
+    "reviews": "After all parents, deterministic originalbatch order; no taskID or postoutcome prioritization. Revieweachbatch atmostonce whileheadroomallows. Valid unchanged child accepted; numerically changedchild mustmeet exactexisting revision-basis rules. Failed/malformed/truncated/invalid/timeoutchild retains exact parentbatch and laterreview continues only with realheadroom.",
+    "publication": "No partial roster is advertised as complete. Before allparents, each batch's verified answer is persisted privately. After allparents, completeparent published atomically; successfulchild batches modify a private full-answer copy, validated then atomically published. Failed elective work never erases lastcompleteparent. Persistentwrite failure recorded and stops; do not synthesize rows."
+  },
+  "precode_requirements": [
+    "Exact authoritative600s deadline source citation and Bupperbound/R_save formula reviewed before code.",
+    "Independent scheduler protocol/source plan review, preserving this initial protocol if amended.",
+    "Freeze exact baseline/candidate/prompt snapshots, code, scenario harness/input hashes before controls. No context compression, newfeatures, prior changes or promptedforecastpolicy change."
+  ],
+  "mechanism_controls": {
+    "fixed_delay_seconds": [
+      20,
+      30,
+      45,
+      60
+    ],
+    "roster": 30,
+    "expectation": "All fullparentbatches are requested before the first review; parent should complete20/30/45/60second fixedlatencycases under530initialbudget, saving480secparent at60latency. Electivereviewuptake may decline but fullparentpreserved. Record exactrequest/time states; no actualHousequality from script.",
+    "cases": [
+      "Malformed first parent then valid structuralrepair",
+      "Malformed late parent with preceding batch receipts preserved but no inventedfullanswer",
+      "Parenttransporttimeoutfirst/late, same25cap andglobaldeadline",
+      "Malformed/truncated/unsupportedchangedreview, validunchangedreview andsupportedchangedreview",
+      "Failed late review preserves every completed parent batch andcompletepublishedanswer",
+      "No review at exhaustedtime/requestheadroom",
+      "Exactbasepromptbytes/evidence/numeric/citationcode equality except schedulingtime/stageorder",
+      "30entityallinitialsneedrepair consumes16requests leavingatmost9reviews",
+      "Greaterthan25batch requestallocation cannot complete exactroster andfails explicitly",
+      "Publication/atomicwrite failure doesnoterase lastcompletedparent",
+      "Measuredpreprocessing/saveoverhead included, clocknorenewal"
+    ]
+  },
+  "representative_replay": "All11 fixed visible public Track4units, exactsame frozen inputs. Capture complete userpromptbytes/timeouts/counts/parents/reviews. Scripted anchors and metadata assess completion/contracts only; publicpractice is consumed and cannot establish financialaccuracy.",
+  "real_quality_requirement": "HOLD until a frozen matched genuine House evaluation records fullunit completion, actual total/first/late latency, predictions before/after review, fixed-denominator financialpoint/rank/interval/falseclaim losses and harmfulreviewrate on independent labeled cases. More completed unit can help aggregate, but source diagnosis has no causal component from officialwithheldlogs.",
+  "publication_or_submission": false,
+  "no_additional_mechanism": "Do not combine contextcompression/newmodel/accountingbridge/casememory or changing priors in this scheduler arm. Any needed protocol amendment must precede new code/outcomes and preserve predecessor.",
+  "precode_amendment": {
+    "reason": "Independentreview requiredconcretefullanswerbound,exactentryclock andlateparentpolicy.",
+    "initial_protocol_sha256": "4ad4b2e82cb766224120ca582d92bf96fb73bb6d8bc313672261c78d699f0066",
+    "implementation_or_outcomes": false,
+    "mechanism_unchanged": "Onlyschedulertransactionalpublication; prompt/numeric/evidence/citationcodefixed."
+  }
+}
