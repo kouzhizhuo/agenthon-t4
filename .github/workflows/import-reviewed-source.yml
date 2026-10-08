@@ -1,0 +1,78 @@
+name: Import reviewed track source
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: reviewed-source-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out personal public repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683d
+      - name: Verify and import the exact reviewed source archive
+        env:
+          EXPECTED_REPOSITORY: kouzhizhuo/agenthon-t4
+          SOURCE_URL: https://github.com/kouzhizhuo/agenthon-t4/releases/download/source-export-20261008/agenthon-t4-source.tar.gz
+          SOURCE_SHA256: 87b53225747c934cfc0909e4f82491055d0c205842506bd4cb65f09ab6014dcd
+          MANIFEST_SHA256: 52eb1465162b40439a5fa23358df334947f2ba5077d43f542eb0cecbe63ffec8
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib,subprocess,tarfile,tempfile,urllib.request
+          if os.environ['GITHUB_REPOSITORY']!=os.environ['EXPECTED_REPOSITORY']:
+              raise ValueError('personal repository mismatch')
+          with urllib.request.urlopen(os.environ['SOURCE_URL'],timeout=120) as response:
+              data=response.read()
+          if hashlib.sha256(data).hexdigest()!=os.environ['SOURCE_SHA256']:
+              raise ValueError('source archive hash mismatch')
+          with tempfile.TemporaryDirectory() as tmp:
+              archive=pathlib.Path(tmp)/'source.tar.gz';archive.write_bytes(data)
+              with tarfile.open(archive,'r:gz') as tar:
+                  members=tar.getmembers();names=[m.name for m in members]
+                  if len(set(names))!=len(names):raise ValueError('duplicate archive members')
+                  content={}
+                  for member in members:
+                      path=pathlib.PurePosixPath(member.name)
+                      if not member.isfile() or path.is_absolute() or '..' in path.parts or '.git' in path.parts or any(p.startswith('._') for p in path.parts):
+                          raise ValueError('unsafe archive member')
+                      content[member.name]=(tar.extractfile(member).read(),member.mode)
+              manifest_bytes=content['EXPORT_MANIFEST.json'][0]
+              if hashlib.sha256(manifest_bytes).hexdigest()!=os.environ['MANIFEST_SHA256']:
+                  raise ValueError('export manifest hash mismatch')
+              manifest=json.loads(manifest_bytes)
+              entries=manifest.get('files',manifest.get('entries'))
+              if not isinstance(entries,list):raise ValueError('export manifest entries missing')
+              expected={entry['export_path']:entry for entry in entries}
+              if len(expected)!=len(entries):raise ValueError('duplicate export manifest paths')
+              if set(content)!=set(expected)|{'EXPORT_MANIFEST.json'}:
+                  raise ValueError('source archive roster mismatch')
+              for name,entry in expected.items():
+                  raw=content[name][0]
+                  expected_hash=entry.get('sha256',entry.get('export_sha256'))
+                  if len(raw)!=entry['bytes'] or hashlib.sha256(raw).hexdigest()!=expected_hash:
+                      raise ValueError('source file hash mismatch:'+name)
+              imported=[]
+              for name,(raw,mode) in sorted(content.items()):
+                  if name.startswith('.github/workflows/'):
+                      continue  # These reviewed workflows are published through the browser separately.
+                  path=pathlib.Path(name)
+                  if path.is_symlink() or any(p.is_symlink() for p in path.parents):raise ValueError('symlink destination')
+                  if path.exists() and path.read_bytes()!=raw:raise ValueError('refuse to overwrite different source:'+name)
+                  path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw)
+                  path.chmod(0o755 if mode&0o111 else 0o644)
+                  imported.append(name)
+              subprocess.run(['git','add','--',*imported],check=True)
+              changed=subprocess.run(['git','diff','--cached','--quiet']).returncode
+              if changed==0:
+                  print('Exact reviewed source already present')
+              elif changed==1:
+                  subprocess.run(['git','-c','user.name=github-actions[bot]','-c','user.email=41898282+github-actions[bot]@users.noreply.github.com','commit','-m','Import reviewed isolated track source and experiment decisions'],check=True)
+                  subprocess.run(['git','push','origin','HEAD:main'],check=True)
+              else:
+                  raise RuntimeError('git staged diff failed')
+              print(json.dumps({'repository':os.environ['GITHUB_REPOSITORY'],'source_sha256':os.environ['SOURCE_SHA256'],'manifest_sha256':os.environ['MANIFEST_SHA256'],'imported_files':len(imported),'browser_managed_workflows':[n for n in sorted(content) if n.startswith('.github/workflows/')]}))
+          PY
