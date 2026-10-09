@@ -63,6 +63,19 @@ jobs:
               target.chmod(0o444)
           print(json.dumps({'status': 'PASS_EXACT_MATERIALIZATION', 'files': len(validated), 'candidate_files': 25, 'runtime_executed': False}, sort_keys=True))
           PY_BUNDLE
+      - name: Materialize post-container evidence preparation helper
+        run: |
+          set -euo pipefail
+          python3 - <<'PY_EVIDENCE_HELPER'
+          import base64
+          from pathlib import Path
+          raw = base64.b64decode('IiIiUG9zdC1jb250YWluZXIgaG9zdCBldmlkZW5jZSBvd25lcnNoaXAgcHJlcGFyYXRpb247IHNtb2tlLW91dHB1dCBzY29wZSBvbmx5LiIiIgppbXBvcnQgYXJncGFyc2UKaW1wb3J0IGhhc2hsaWIKaW1wb3J0IGpzb24KaW1wb3J0IG9zCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAppbXBvcnQgcmUKaW1wb3J0IHN0YXQKaW1wb3J0IHN1YnByb2Nlc3MKCgpkZWYgb3JkaW5hcnlfdHJlZShyb290KToKICAgIHBhdGhzID0gW3Jvb3RdCiAgICBwZW5kaW5nID0gW3Jvb3RdCiAgICB3aGlsZSBwZW5kaW5nOgogICAgICAgIGRpcmVjdG9yeSA9IHBlbmRpbmcucG9wKCkKICAgICAgICBmb3IgcGF0aCBpbiBzb3J0ZWQoZGlyZWN0b3J5Lml0ZXJkaXIoKSk6CiAgICAgICAgICAgIG1vZGUgPSBwYXRoLmxzdGF0KCkuc3RfbW9kZQogICAgICAgICAgICBpZiBzdGF0LlNfSVNMTksobW9kZSkgb3Igbm90IChzdGF0LlNfSVNESVIobW9kZSkgb3Igc3RhdC5TX0lTUkVHKG1vZGUpKToKICAgICAgICAgICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoJ29yZGluYXJ5IGV2aWRlbmNlIGZpbGVzIGFuZCBkaXJlY3RvcmllcyBvbmx5JykKICAgICAgICAgICAgcGF0aHMuYXBwZW5kKHBhdGgpCiAgICAgICAgICAgIGlmIHN0YXQuU19JU0RJUihtb2RlKToKICAgICAgICAgICAgICAgIHBlbmRpbmcuYXBwZW5kKHBhdGgpCiAgICByZXR1cm4gc29ydGVkKHBhdGhzKQoKCmRlZiBzbmFwc2hvdChyb290LCBwYXRocyk6CiAgICByb3dzID0gW10KICAgIGZvciBwYXRoIGluIHBhdGhzOgogICAgICAgIG1ldGFkYXRhID0gcGF0aC5sc3RhdCgpCiAgICAgICAgcm93ID0geydwYXRoJzogc3RyKHBhdGgucmVsYXRpdmVfdG8ocm9vdCkpLCAndWlkJzogbWV0YWRhdGEuc3RfdWlkLAogICAgICAgICAgICAgICAnZ2lkJzogbWV0YWRhdGEuc3RfZ2lkLCAnbW9kZSc6IGZvcm1hdChzdGF0LlNfSU1PREUobWV0YWRhdGEuc3RfbW9kZSksICcwNG8nKSwKICAgICAgICAgICAgICAgJ3R5cGUnOiAnZGlyZWN0b3J5JyBpZiBzdGF0LlNfSVNESVIobWV0YWRhdGEuc3RfbW9kZSkgZWxzZSAnZmlsZSd9CiAgICAgICAgaWYgcm93Wyd0eXBlJ10gPT0gJ2ZpbGUnOgogICAgICAgICAgICByYXcgPSBwYXRoLnJlYWRfYnl0ZXMoKQogICAgICAgICAgICByb3cudXBkYXRlKHsnYnl0ZXMnOiBsZW4ocmF3KSwgJ3NoYTI1Nic6IGhhc2hsaWIuc2hhMjU2KHJhdykuaGV4ZGlnZXN0KCl9KQogICAgICAgIHJvd3MuYXBwZW5kKHJvdykKICAgIHJldHVybiByb3dzCgoKZGVmIHNhdmUocGF0aCwgdmFsdWUsIHVpZCwgZ2lkKToKICAgIHdpdGggcGF0aC5vcGVuKCd4JywgZW5jb2Rpbmc9J3V0Zi04JykgYXMgc3RyZWFtOgogICAgICAgIGpzb24uZHVtcCh2YWx1ZSwgc3RyZWFtLCBpbmRlbnQ9Miwgc29ydF9rZXlzPVRydWUsIGFsbG93X25hbj1GYWxzZSkKICAgICAgICBzdHJlYW0ud3JpdGUoJ1xuJykKICAgIHBhdGguY2htb2QoMG82NDQpCiAgICBvcy5jaG93bihwYXRoLCB1aWQsIGdpZCwgZm9sbG93X3N5bWxpbmtzPUZhbHNlKQoKCmRlZiBzdG9wcGVkX2NvbnRhaW5lcihuYW1lKToKICAgIG5hbWVzID0gc3VicHJvY2Vzcy5ydW4oWydkb2NrZXInLCAnY29udGFpbmVyJywgJ2xzJywgJy1hJywgJy0tZm9ybWF0JywgJ3t7Lk5hbWVzfX0nXSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgY2hlY2s9VHJ1ZSwgY2FwdHVyZV9vdXRwdXQ9VHJ1ZSwgdGV4dD1UcnVlLCB0aW1lb3V0PTUpLnN0ZG91dC5zcGxpdGxpbmVzKCkKICAgIGlmIG5hbWUgbm90IGluIG5hbWVzOgogICAgICAgIHJldHVybiB7J25hbWUnOiBuYW1lLCAnb2JzZXJ2ZWQnOiAnYWJzZW50JywgJ3JlYWRfb25seV9kb2NrZXJfb2JzZXJ2YXRpb24nOiBUcnVlfQogICAgaW5zcGVjdGVkID0gc3VicHJvY2Vzcy5ydW4oWydkb2NrZXInLCAnY29udGFpbmVyJywgJ2luc3BlY3QnLCBuYW1lXSwgY2hlY2s9VHJ1ZSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNhcHR1cmVfb3V0cHV0PVRydWUsIHRleHQ9VHJ1ZSwgdGltZW91dD01KQogICAgcm93cyA9IGpzb24ubG9hZHMoaW5zcGVjdGVkLnN0ZG91dCkKICAgIGlmIGxlbihyb3dzKSAhPSAxIG9yIHJvd3NbMF1bJ05hbWUnXSAhPSAnLycgKyBuYW1lOgogICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoJ29uZSBleGFjdCBzbW9rZSBjb250YWluZXIgb2JzZXJ2YXRpb24nKQogICAgc3RhdGUgPSByb3dzWzBdWydTdGF0ZSddCiAgICBpZiBzdGF0ZVsnUnVubmluZyddIG9yIHN0YXRlWydTdGF0dXMnXSBub3QgaW4gKCdleGl0ZWQnLCAnZGVhZCcpOgogICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoJ2V2aWRlbmNlIG93bmVyc2hpcCBjaGFuZ2VzIHJlcXVpcmUgZXhpdGVkIG9yIGFic2VudCBjb250YWluZXInKQogICAgcmV0dXJuIHsnbmFtZSc6IG5hbWUsICdvYnNlcnZlZCc6IHN0YXRlWydTdGF0dXMnXSwgJ3N0YXRlJzogc3RhdGUsCiAgICAgICAgICAgICdyZWFkX29ubHlfZG9ja2VyX29ic2VydmF0aW9uJzogVHJ1ZX0KCgpkZWYgbWFpbigpOgogICAgcGFyc2VyID0gYXJncGFyc2UuQXJndW1lbnRQYXJzZXIoKQogICAgcGFyc2VyLmFkZF9hcmd1bWVudCgnLS11aWQnLCB0eXBlPWludCwgcmVxdWlyZWQ9VHJ1ZSkKICAgIHBhcnNlci5hZGRfYXJndW1lbnQoJy0tZ2lkJywgdHlwZT1pbnQsIHJlcXVpcmVkPVRydWUpCiAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KCctLXBoYXNlJywgY2hvaWNlcz0oJ3N1Y2Nlc3MnLCAnYWx3YXlzJyksIHJlcXVpcmVkPVRydWUpCiAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KCctLWNvbnRhaW5lci1uYW1lJywgcmVxdWlyZWQ9VHJ1ZSkKICAgIGFyZ3MgPSBwYXJzZXIucGFyc2VfYXJncygpCiAgICBpZiAob3MuZ2V0ZXVpZCgpICE9IDAgb3IgYXJncy51aWQgPD0gMCBvciBhcmdzLmdpZCA8PSAwCiAgICAgICAgICAgIG9yIG5vdCByZS5mdWxsbWF0Y2gocid0NC12MzYtcG9ydGFibGUtWzAtOV0rLVswLTldKycsIGFyZ3MuY29udGFpbmVyX25hbWUpKToKICAgICAgICByYWlzZSBWYWx1ZUVycm9yKCdyb290IGV2aWRlbmNlIHByZXBhcmF0aW9uIGZvciBleGFjdCBydW5uZXIgYW5kIHNtb2tlIG5hbWUnKQogICAgd29ya3NwYWNlID0gUGF0aC5jd2QoKS5yZXNvbHZlKCkKICAgIHJvb3QgPSB3b3Jrc3BhY2UgLyAnc21va2Utb3V0cHV0JwogICAgY29udGFpbmVyID0gc3RvcHBlZF9jb250YWluZXIoYXJncy5jb250YWluZXJfbmFtZSkKICAgIHByZWZpeCA9IHdvcmtzcGFjZSAvICgnc21va2UtZXZpZGVuY2UtJyArIGFyZ3MucGhhc2UpCiAgICBpZiBub3Qgcm9vdC5leGlzdHMoKToKICAgICAgICBzYXZlKFBhdGgoc3RyKHByZWZpeCkgKyAnLWFic2VudC5qc29uJyksIHsnc3RhdHVzJzogJ05PX1NNT0tFX09VVFBVVF9UT19QUkVQQVJFJywKICAgICAgICAgICAgICdzY29wZSc6IHN0cihyb290KSwgJ2NvbnRhaW5lcic6IGNvbnRhaW5lciwgJ3BoYXNlJzogYXJncy5waGFzZX0sIGFyZ3MudWlkLCBhcmdzLmdpZCkKICAgICAgICByZXR1cm4KICAgIGlmIHJvb3QuaXNfc3ltbGluaygpIG9yIG5vdCByb290LmlzX2RpcigpIG9yIHJvb3QucmVzb2x2ZSgpICE9IHJvb3Q6CiAgICAgICAgcmFpc2UgVmFsdWVFcnJvcignZXhhY3Qgb3JkaW5hcnkgc21va2Utb3V0cHV0IGRpcmVjdG9yeScpCiAgICBwYXRocyA9IG9yZGluYXJ5X3RyZWUocm9vdCkKICAgIGJlZm9yZSA9IHNuYXBzaG90KHJvb3QsIHBhdGhzKQogICAgc2F2ZShQYXRoKHN0cihwcmVmaXgpICsgJy1iZWZvcmUuanNvbicpLCB7J3N0YXR1cyc6ICdQUkVQQVJBVElPTl9CRUZPUkUnLCAnc2NvcGUnOiBzdHIocm9vdCksCiAgICAgICAgICdjb250YWluZXInOiBjb250YWluZXIsICdwaGFzZSc6IGFyZ3MucGhhc2UsICd0YXJnZXRfdWlkJzogYXJncy51aWQsCiAgICAgICAgICd0YXJnZXRfZ2lkJzogYXJncy5naWQsICdlbnRyaWVzJzogYmVmb3JlfSwgYXJncy51aWQsIGFyZ3MuZ2lkKQogICAgZm9yIHBhdGggaW4gcGF0aHM6CiAgICAgICAgb3MuY2hvd24ocGF0aCwgYXJncy51aWQsIGFyZ3MuZ2lkLCBmb2xsb3dfc3ltbGlua3M9RmFsc2UpCiAgICBhZnRlcl9wYXRocyA9IG9yZGluYXJ5X3RyZWUocm9vdCkKICAgIGFmdGVyID0gc25hcHNob3Qocm9vdCwgYWZ0ZXJfcGF0aHMpCiAgICBwcmVzZXJ2ZWQgPSAoW3trOiB2IGZvciBrLCB2IGluIHJvdy5pdGVtcygpIGlmIGsgbm90IGluICgndWlkJywgJ2dpZCcpfSBmb3Igcm93IGluIGJlZm9yZV0KICAgICAgICAgICAgICAgICA9PSBbe2s6IHYgZm9yIGssIHYgaW4gcm93Lml0ZW1zKCkgaWYgayBub3QgaW4gKCd1aWQnLCAnZ2lkJyl9IGZvciByb3cgaW4gYWZ0ZXJdKQogICAgb3duZWQgPSBhbGwocm93Wyd1aWQnXSA9PSBhcmdzLnVpZCBhbmQgcm93WydnaWQnXSA9PSBhcmdzLmdpZCBmb3Igcm93IGluIGFmdGVyKQogICAgc2F2ZShQYXRoKHN0cihwcmVmaXgpICsgJy1hZnRlci5qc29uJyksIHsnc3RhdHVzJzogJ1BBU1NfUE9TVF9DT05UQUlORVJfRVZJREVOQ0VfT1dORVJTSElQJwogICAgICAgICBpZiBwcmVzZXJ2ZWQgYW5kIG93bmVkIGVsc2UgJ0ZBSUxFRF9FVklERU5DRV9PV05FUlNISVBfSU5WQVJJQU5UJywgJ3Njb3BlJzogc3RyKHJvb3QpLAogICAgICAgICAnY29udGFpbmVyJzogY29udGFpbmVyLCAncGhhc2UnOiBhcmdzLnBoYXNlLCAndGFyZ2V0X3VpZCc6IGFyZ3MudWlkLAogICAgICAgICAndGFyZ2V0X2dpZCc6IGFyZ3MuZ2lkLCAnbW9kZXNfYW5kX2ZpbGVfYnl0ZXNfaGFzaGVzX3ByZXNlcnZlZCc6IHByZXNlcnZlZCwKICAgICAgICAgJ2FsbF9ldmlkZW5jZV9vd25lZF9ieV9ydW5uZXInOiBvd25lZCwgJ2VudHJpZXMnOiBhZnRlcn0sIGFyZ3MudWlkLCBhcmdzLmdpZCkKICAgIGlmIG5vdCBwcmVzZXJ2ZWQgb3Igbm90IG93bmVkOgogICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoJ2V2aWRlbmNlIG93bmVyc2hpcCBwcmVwYXJhdGlvbiBjaGFuZ2VkIGludmVudG9yeSwgbW9kZXMgb3IgYnl0ZXMnKQoKCmlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6CiAgICBtYWluKCkK', validate=True)
+          assert len(raw) == 4989
+          import hashlib
+          assert hashlib.sha256(raw).hexdigest() == '838dc1e2a2f204568019f458c54453ce354879370aab5fab9e81c3084607888c'
+          with Path('prepare_smoke_evidence.py').open('xb') as stream:
+              stream.write(raw)
+          PY_EVIDENCE_HELPER
       - name: Build exact Linux amd64 candidate
         run: |
           set -euo pipefail
@@ -101,6 +114,7 @@ jobs:
           state = json.loads(Path('smoke-container-inspect.json').read_bytes())[0]['State']
           assert state['Status'] == 'exited' and state['ExitCode'] == 0 and not state['OOMKilled'] and not state['Error']
           PY_EXIT
+          sudo python3 -I -S -B "$PWD/prepare_smoke_evidence.py" --uid "$(id -u)" --gid "$(id -g)" --phase success --container-name "$SMOKE_NAME"
           python3 -I -S -B bundle/verification/verify_smoke.py --output smoke-output/mechanics --container smoke-container-inspect.json --image-id "$IMAGE_ID" > smoke-summary.json
           cat smoke-summary.json >> "$GITHUB_STEP_SUMMARY"
       - name: Publish same verified image to unique candidate tag
@@ -140,6 +154,13 @@ jobs:
           provenance['saved_smoke_files'] = files
           Path('PUBLISHED_CANDIDATE.json').write_text(json.dumps(provenance, indent=2, sort_keys=True) + '\n')
           PY_PUBLISH
+      - name: Prepare partial smoke evidence for artifacts after container settlement
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ -e smoke-output ]; then
+            sudo python3 -I -S -B "$PWD/prepare_smoke_evidence.py" --uid "$(id -u)" --gid "$(id -g)" --phase always --container-name "t4-v36-portable-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          fi
       - name: Preserve source provenance and evidence including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -160,6 +181,7 @@ jobs:
             smoke-container-stdout.txt
             smoke-container-stderr.txt
             smoke-output
+            smoke-evidence-*.json
             smoke-summary.json
             registry-push.txt
             published-image-inspect.json
