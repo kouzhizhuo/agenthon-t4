@@ -1,0 +1,110 @@
+name: T4 verifier V4 compact exact payload and Linux CLI checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Read exact current workflow commit without persisting credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Unpack frozen locally assembled image and test inputs
+        run: |
+          set -euo pipefail
+          mkdir -p payload results
+          python3 - <<'PY'
+          import base64,gzip,hashlib,io,json,pathlib,tarfile
+          file_raw=pathlib.Path('verification/t4-verifier-payload-v4.b64').read_bytes()
+          assert len(file_raw)==556589 and hashlib.sha256(file_raw).hexdigest()=='292d63b91777c304f88b4f0c8c9e9cc11ed94156bdf556c75db01744e51d3100'
+          raw=base64.b64decode(file_raw.strip(),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='decb0825778bab4d1511c3c708c3c461279d643176166af0644896be8fad2430'
+          root=pathlib.Path('payload')
+          with tarfile.open(fileobj=io.BytesIO(gzip.decompress(raw))) as archive:
+              seen=set()
+              for item in archive.getmembers():
+                  path=pathlib.PurePosixPath(item.name)
+                  assert item.isfile() and not path.is_absolute() and '..' not in path.parts and item.name not in seen
+                  seen.add(item.name)
+                  target=root/item.name
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  target.write_bytes(archive.extractfile(item).read())
+          inventory=json.loads((root/'PAYLOAD_INVENTORY.json').read_bytes())
+          expected={row['path'] for row in inventory['files']}|{'PAYLOAD_INVENTORY.json'}
+          assert seen==expected
+          for row in inventory['files']:
+              data=(root/row['path']).read_bytes()
+              assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256']
+          PY
+      - name: Publish exact local OCI descriptor with ephemeral workflow token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 -I -S -B payload/tools/publish_verifier_oci.py --layout payload/image.oci --digest sha256:808bb4080d46b5022862073a6c44c00f620ef07d37250912f8b2eb53f259db10 --tag verifier-20261009-source-anchored --base-pin payload/PUBLICATION_INPUT.json --report results/PUBLICATION.json
+      - name: Pull exact image anonymously with empty Docker configuration
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/t4-verifier-anonymous"
+          test ! -e "$RUNNER_TEMP/t4-verifier-anonymous/config.json"
+          timeout --kill-after=5s 120s docker --config "$RUNNER_TEMP/t4-verifier-anonymous" pull ghcr.io/kouzhizhuo/agenthon-t4@sha256:808bb4080d46b5022862073a6c44c00f620ef07d37250912f8b2eb53f259db10 >results/anonymous-pull.txt 2>&1
+          cat results/anonymous-pull.txt
+      - name: Install pinned host-only official validator dependencies
+        run: |
+          python3 -m venv "$RUNNER_TEMP/t4-verifier-schema"
+          "$RUNNER_TEMP/t4-verifier-schema/bin/python" -m pip install --disable-pip-version-check jsonschema==4.25.1 numpy==2.3.5
+      - name: Probe frozen standalone official dependency closure before candidate controls
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/t4-verifier-schema/bin/python" -I -B payload/tools/probe_verifier_official_closure.py --payload payload --out results/OFFICIAL_DEPENDENCY_IMPORT_PROBE.json
+      - name: Run frozen source unit and isolated CLI controls in final Python 3.13 image
+        run: |
+          set -euo pipefail
+          mkdir -p results/source-controls
+          control_name=t4-verifier-source-${{ github.run_id }}-${{ github.run_attempt }}
+          cli_name=t4-verifier-cli-${{ github.run_id }}-${{ github.run_attempt }}
+          trap 'timeout --kill-after=2s 20s docker rm -f "$control_name" "$cli_name" >/dev/null 2>&1 || true' EXIT
+          status=0
+          timeout --kill-after=5s 150s docker run --name "$control_name" --rm --pull never --network none --read-only --tmpfs /tmp:rw,nosuid,nodev,size=64m --user 65534:65534 --cap-drop ALL --security-opt no-new-privileges -v "$PWD/payload/source:/test:ro" -v "$PWD/results/source-controls:/control-output:rw" -v "$PWD/payload/tools:/controls:ro" --entrypoint /usr/local/bin/python ghcr.io/kouzhizhuo/agenthon-t4@sha256:808bb4080d46b5022862073a6c44c00f620ef07d37250912f8b2eb53f259db10 -I -S -B /controls/run_verifier_source_controls.py --kind unit >results/source-controls/stdout.txt 2>results/source-controls/stderr.txt || status=$?
+          timeout --kill-after=2s 20s docker rm -f "$control_name" >results/source-controls/cleanup.txt 2>&1 || true
+          inspect_status=0
+          timeout --kill-after=2s 10s docker container inspect "$control_name" >results/source-controls/inspect.txt 2>&1 || inspect_status=$?
+          printf '%s\n' "$status" >results/source-controls/exitcode.txt
+          test "$inspect_status" -eq 1
+          inspect_text=$(cat results/source-controls/inspect.txt)
+          [[ "$inspect_text" == *"No such"* && "$inspect_text" == *"$control_name"* ]]
+          test "$status" -eq 0
+          sudo -n chmod 0777 results/source-controls
+          cli_status=0
+          timeout --kill-after=5s 150s docker run --name "$cli_name" --rm --pull never --network none --read-only --tmpfs /tmp:rw,nosuid,nodev,size=64m --user 65534:65534 --cap-drop ALL --security-opt no-new-privileges -v "$PWD/payload/source:/test:ro" -v "$PWD/results/source-controls:/control-output:rw" -v "$PWD/payload/tools:/controls:ro" --entrypoint /usr/local/bin/python ghcr.io/kouzhizhuo/agenthon-t4@sha256:808bb4080d46b5022862073a6c44c00f620ef07d37250912f8b2eb53f259db10 -I -S -B /controls/run_verifier_source_controls.py --kind cli >results/source-controls/cli.stdout.txt 2>results/source-controls/cli.stderr.txt || cli_status=$?
+          timeout --kill-after=2s 20s docker rm -f "$cli_name" >results/source-controls/cli.cleanup.txt 2>&1 || true
+          cli_inspect_status=0
+          timeout --kill-after=2s 10s docker container inspect "$cli_name" >results/source-controls/cli.inspect.txt 2>&1 || cli_inspect_status=$?
+          printf '%s\n' "$cli_status" >results/source-controls/cli.exitcode.txt
+          test "$cli_inspect_status" -eq 1
+          cli_inspect_text=$(cat results/source-controls/cli.inspect.txt)
+          [[ "$cli_inspect_text" == *"No such"* && "$cli_inspect_text" == *"$cli_name"* ]]
+          test "$cli_status" -eq 0
+      - name: Run actual installed-image CLI and pinned official deterministic subset checks
+        if: ${{ !cancelled() }}
+        run: |
+          set -euo pipefail
+          sudo -n "$RUNNER_TEMP/t4-verifier-schema/bin/python" -I -B payload/tools/verify_linux_verifier.py --image ghcr.io/kouzhizhuo/agenthon-t4@sha256:808bb4080d46b5022862073a6c44c00f620ef07d37250912f8b2eb53f259db10 --source payload/source --official payload/official --schema payload/official/analysis.schema.json --out results/verifier
+      - name: Expose only invented results to artifact reader
+        if: always()
+        run: |
+          if test -d "$GITHUB_WORKSPACE/results"; then sudo -n chmod -R a+rX -- "$GITHUB_WORKSPACE/results"; fi
+      - name: Upload exact frozen payload and result receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: t4-exact-verifier-linux-${{ github.run_id }}
+          path: |
+            results
+            payload
+          if-no-files-found: error
