@@ -54,6 +54,7 @@ jobs:
           cleanup_control "$ensemble_container" results/source-controls/ensemble || ensemble_status=1
           printf '%s\n' "$native_status" >results/source-controls/native.exitcode.txt
           printf '%s\n' "$ensemble_status" >results/source-controls/ensemble.exitcode.txt
+          cat results/source-controls/*.exitcode.txt results/source-controls/*.stderr.txt results/source-controls/*.inspect.txt
           test "$native_status" -eq 0 && test "$ensemble_status" -eq 0
       - name: Run actual final images on complete invented task rosters
         if: ${{ !cancelled() }}
@@ -61,9 +62,13 @@ jobs:
           set -euo pipefail
           native_status=0
           ensemble_status=0
-          python3 -I -S -B payload/verify_linux.py --image ghcr.io/kouzhizhuo/agenthon-t4@sha256:cd4c53ae801cce08448de675005f6de959e22e048cb0c0ab3ddcddc5f2161173 --source payload/candidates/native --out results/native || native_status=$?
-          python3 -I -S -B payload/verify_linux.py --image ghcr.io/kouzhizhuo/agenthon-t4@sha256:403f989984c2e23def605f382fbe83e5c5f5933d2d38249006e7e718822f2a98 --source payload/candidates/ensemble-v2 --out results/ensemble-v2 --ensemble || ensemble_status=$?
+          sudo -n /usr/bin/python3 -I -S -B payload/verify_linux.py --image ghcr.io/kouzhizhuo/agenthon-t4@sha256:cd4c53ae801cce08448de675005f6de959e22e048cb0c0ab3ddcddc5f2161173 --source payload/candidates/native --out results/native || native_status=$?
+          sudo -n /usr/bin/python3 -I -S -B payload/verify_linux.py --image ghcr.io/kouzhizhuo/agenthon-t4@sha256:403f989984c2e23def605f382fbe83e5c5f5933d2d38249006e7e718822f2a98 --source payload/candidates/ensemble-v2 --out results/ensemble-v2 --ensemble || ensemble_status=$?
           test "$native_status" -eq 0 && test "$ensemble_status" -eq 0
+      - name: Expose only invented verification receipts to artifact reader
+        if: always()
+        run: |
+          if test -d "$GITHUB_WORKSPACE/results"; then sudo -n chmod -R a+rX -- "$GITHUB_WORKSPACE/results"; fi
       - name: Upload exact verification receipts
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
